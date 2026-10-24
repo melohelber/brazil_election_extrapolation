@@ -77,7 +77,11 @@ def collect_web_snapshot(
         "resumo_coleta": [
             {
                 "local": location.upper(),
-                "status": "ok" if location in states else "erro",
+                "status": (
+                    "erro" if location not in states
+                    else "sem_votos" if states[location]["total_votos_apurados"] == 0
+                    else "ok"
+                ),
                 "erro": errors.get(location),
             }
             for location in RESULT_LOCATIONS
@@ -89,6 +93,9 @@ def collect_web_snapshot(
             for location in RESULT_LOCATIONS
             if location in errors
         }
+    collection["pronto_para_projetar"] = all(
+        item["status"] == "ok" for item in collection["resumo_coleta"]
+    )
     active_logger.info(
         "Coleta web concluída | status=%s | sucesso=%d | erros=%d",
         collection["status"],
@@ -103,6 +110,13 @@ def project_web_snapshot(collection: dict[str, Any]) -> dict[str, Any]:
 
     if collection.get("status") != "completo":
         raise ValueError("A projeção exige uma coleta completa")
+    states = collection.get("estados", {})
+    without_votes = [
+        location.upper() for location in RESULT_LOCATIONS
+        if int(states.get(location, {}).get("total_votos_apurados", 0)) == 0
+    ]
+    if without_votes:
+        raise ValueError("Sem votos apurados em: " + ", ".join(without_votes))
     reference = read_json(FIRST_ROUND_TURNOUT_PATH)
     result = project_election(collection, reference)
     return {

@@ -45,6 +45,9 @@ h1 span { color: #9eb1c4; }
 .primary-button:disabled { opacity: .5; cursor: wait; transform: none; }
 .button-icon { display: inline-block; margin-right: 7px; font-size: 20px; vertical-align: -1px; }
 .last-updated { color: var(--muted); font-size: 12px; }
+.hero-actions a { text-decoration: none; text-align: center; }
+.simulation-notice { color: #ffcf87; border: 1px solid #79572b; border-radius: 10px; padding: 14px; font-size: 13px; line-height: 1.5; margin-top: 20px; }
+.collection-item.sem_votos span:last-child { color: #ffcf87; }
 .status-panel { border: 1px solid var(--line); background: var(--panel); border-radius: 18px; padding: 20px; margin-bottom: 34px; backdrop-filter: blur(16px); }
 .status-copy { display: flex; align-items: center; gap: 14px; }
 .status-copy div { display: grid; gap: 4px; }

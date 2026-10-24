@@ -1,5 +1,6 @@
 import logging
 import unittest
+from unittest.mock import patch
 
 from apuracao_presidente.application.web_snapshot import (
     collect_web_snapshot,
@@ -27,6 +28,20 @@ class WebSnapshotTests(unittest.TestCase):
     def test_incomplete_collection_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "coleta completa"):
             project_web_snapshot({"status": "incompleto", "estados": {}})
+
+    def test_zero_votes_are_reported_before_confirmation_and_cannot_be_projected(self):
+        with patch(
+            "apuracao_presidente.application.web_snapshot.MockSecondRoundSource.load",
+            return_value={"total_votos_apurados": 0},
+        ):
+            collection = collect_web_snapshot(mock=True)
+        self.assertEqual(collection["status"], "completo")
+        self.assertFalse(collection["pronto_para_projetar"])
+        self.assertTrue(all(row["status"] == "sem_votos" for row in collection["resumo_coleta"]))
+        # Não confia em um flag enviado pelo navegador para permitir projeção.
+        collection["pronto_para_projetar"] = True
+        with self.assertRaisesRegex(ValueError, "Sem votos apurados"):
+            project_web_snapshot(collection)
 
 
 if __name__ == "__main__":

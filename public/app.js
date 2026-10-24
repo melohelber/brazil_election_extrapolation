@@ -15,6 +15,10 @@ const stateSearch = document.querySelector("#state-search");
 
 if (mockMode) {
   document.querySelector("#source-label").textContent = "MODO SIMULAÇÃO";
+  document.querySelector("#simulation-notice").classList.remove("hidden");
+  document.querySelector("#simulation-link").textContent = "Voltar à apuração real";
+  document.querySelector("#simulation-link").href = "/";
+  refreshButton.lastChild.textContent = " Executar simulação";
 }
 
 const number = new Intl.NumberFormat("pt-BR");
@@ -48,12 +52,16 @@ async function readJson(response) {
 function showConfirmation(collection) {
   const rows = collection.resumo_coleta || [];
   const ok = rows.filter((item) => item.status === "ok").length;
-  document.querySelector("#dialog-summary").textContent = `${ok} de ${rows.length} localidades foram coletadas com sucesso. Confirme para calcular e abrir a análise.`;
+  const ready = collection.pronto_para_projetar === true;
+  const withoutVotes = rows.filter((item) => item.status === "sem_votos").length;
+  document.querySelector("#dialog-summary").textContent = ready
+    ? `${ok} de ${rows.length} localidades com votos disponíveis. Confirme para calcular e abrir a análise.`
+    : `${withoutVotes} localidades sem votos apurados; ${rows.filter((item) => item.status === "erro").length} com erro de coleta. A análise ficará disponível quando todas tiverem votos. Use “Testar com dados simulados” para experimentar agora.`;
   document.querySelector("#collection-grid").innerHTML = rows.map((item) => `
     <div class="collection-item ${item.status}">
-      <span>${item.local}</span><span>${item.status === "ok" ? "OK" : "ERRO"}</span>
+      <span>${item.local}</span><span>${item.status === "ok" ? "OK" : item.status === "sem_votos" ? "SEM VOTOS" : "ERRO"}</span>
     </div>`).join("");
-  confirmButton.disabled = collection.status !== "completo";
+  confirmButton.disabled = !ready;
   dialog.showModal();
 }
 
@@ -62,7 +70,9 @@ async function collect() {
   statusPanel.querySelector(".spinner").style.display = "block";
   try {
     const query = mockMode ? "?mock=1" : "";
-    const payload = await readJson(await fetch(`/api/snapshot${query}`, { cache: "no-store" }));
+    const response = await fetch(`/api/snapshot${query}`, { cache: "no-store" });
+    const payload = await response.json();
+    if (!payload.coleta) throw new Error(payload.erro || `Erro HTTP ${response.status}`);
     state.collection = payload.coleta;
     setLoading(false);
     showConfirmation(state.collection);
@@ -144,7 +154,12 @@ function downloadJson(prefix, payload) {
 }
 
 refreshButton.addEventListener("click", collect);
-confirmButton.addEventListener("click", (event) => { event.preventDefault(); dialog.close(); project(); });
+confirmButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (!state.collection?.pronto_para_projetar) return;
+  dialog.close();
+  project();
+});
 stateSearch.addEventListener("input", () => {
   const query = stateSearch.value.trim().toUpperCase();
   document.querySelectorAll(".state-card").forEach((card) => card.classList.toggle("hidden", !card.dataset.name.includes(query)));
