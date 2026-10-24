@@ -48,6 +48,16 @@ h1 span { color: #9eb1c4; }
 .hero-actions a { text-decoration: none; text-align: center; }
 .simulation-notice { color: #ffcf87; border: 1px solid #79572b; border-radius: 10px; padding: 14px; font-size: 13px; line-height: 1.5; margin-top: 20px; }
 .collection-item.sem_votos span:last-child { color: #ffcf87; }
+.methodology { margin-top: 26px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); }
+.methodology summary { cursor: pointer; padding: 18px; font-weight: 750; line-height: 1.5; }
+.methodology summary span { display: block; margin: 4px 0 0 18px; color: var(--muted); font-weight: 400; font-size: 12px; }
+.methodology summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 14px; }
+.methodology-content { padding: 0 20px 20px; color: #b7c6d4; font-size: 14px; line-height: 1.75; overflow-wrap: anywhere; }
+.methodology-content h2 { color: var(--text); font-size: 20px; margin-top: 8px; }
+.methodology-content h3 { color: var(--text); font-size: 16px; margin-top: 24px; }
+.methodology-content ul { padding-left: 20px; }
+.methodology-content li { margin-bottom: 12px; }
+.methodology-formula { padding: 12px; border-radius: 8px; background: rgba(94,230,190,.07); color: var(--accent); }
 .status-panel { border: 1px solid var(--line); background: var(--panel); border-radius: 18px; padding: 20px; margin-bottom: 34px; backdrop-filter: blur(16px); }
 .status-copy { display: flex; align-items: center; gap: 14px; }
 .status-copy div { display: grid; gap: 4px; }

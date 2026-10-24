@@ -36,6 +36,35 @@
           <span id="last-updated" class="last-updated">Nenhuma coleta realizada</span>
         </div>
         <p id="simulation-notice" class="simulation-notice hidden">SIMULAÇÃO — dados fictícios para experimentar a apuração. Não são resultados oficiais.</p>
+        <details id="como-funciona" class="methodology">
+          <summary>Como funciona a projeção <span>Condições de contorno e exemplo</span></summary>
+          <div class="methodology-content">
+            <h2>A referência é o comparecimento do primeiro turno</h2>
+            <p>Para cada uma das 27 UFs e para o exterior, usamos como referência o total de votos do primeiro turno: votos nos candidatos, brancos e nulos. É o comparecimento registrado, não a quantidade de eleitores cadastrados. Essa base oficial está incluída no aplicativo.</p>
+            <h3>O cálculo é feito por localidade</h3>
+            <p>Ao atualizar, o servidor consulta os dados do segundo turno no TSE. Após sua confirmação, calculamos o fator de extrapolação dividindo o total de votos do primeiro turno pelos votos individuais já apurados naquele local no segundo turno.</p>
+            <p class="methodology-formula">Fator = total de votos do 1º turno ÷ total de votos apurados agora</p>
+            <p>Multiplicamos os votos atuais de Flávio Bolsonaro, de Lula e de brancos + nulos pelo mesmo fator. Não usamos quantidade nem percentual de seções ou urnas. Os votos brancos + nulos correspondem ao total apurado menos os votos dos dois candidatos; também conferimos essa soma com os campos retornados pelo TSE.</p>
+            <h3>Exemplo com números fictícios</h3>
+            <p>Se o Ceará teve 10 milhões de votos no primeiro turno e agora tem 1 milhão apurado, o fator é 10. Com 250 mil votos para Flávio, 650 mil para Lula e 100 mil brancos + nulos, a projeção fica em 2,5 milhões para Flávio, 6,5 milhões para Lula e 1 milhão de brancos + nulos.</p>
+            <h3>Percentuais e total do Brasil</h3>
+            <p>Os votos válidos são a soma dos votos dos dois candidatos. O percentual de Flávio é Flávio ÷ (Flávio + Lula) × 100; o de Lula usa a mesma base. Brancos + nulos ficam fora desses percentuais, mas entram no total de votos. No exemplo, são 27,78% para Flávio e 72,22% para Lula entre os válidos.</p>
+            <p>Para o Brasil, somamos os votos de cada candidato projetados em todas as UFs e no exterior e só então calculamos os percentuais nacionais. Não fazemos a média dos percentuais estaduais. O arredondamento distribui as unidades restantes para que candidatos + brancos + nulos somem exatamente o total projetado.</p>
+            <h3>Condições de contorno</h3>
+            <ul>
+              <li><strong>Sem votos:</strong> a confirmação mostra “SEM VOTOS” e bloqueia a análise até todas as localidades terem votos disponíveis.</li>
+              <li><strong>Falha na coleta:</strong> a confirmação mostra o local com erro e bloqueia uma análise nacional incompleta. O servidor faz tentativas adicionais para falhas de rede.</li>
+              <li><strong>Apuração finalizada:</strong> usamos fator 1; o projetado passa a ser igual ao resultado apurado.</li>
+              <li><strong>Comparecimento maior que no primeiro turno:</strong> se o total já apurado alcançar ou superar a referência, usamos fator 1 para nunca reduzir votos observados.</li>
+              <li><strong>Dados inconsistentes:</strong> valores negativos, candidatos ausentes, eleição ou turno incorretos e totais que não fecham são rejeitados na coleta.</li>
+              <li><strong>Retrato da atualização:</strong> usamos o que o TSE retorna para cada local naquele momento. As consultas podem ter horários de atualização diferentes; não corrigimos essa diferença. Confirmar usa a mesma coleta, sem buscar outra.</li>
+              <li><strong>Simulação:</strong> usa números fictícios e o mesmo cálculo da apuração real. O modo fica identificado na tela e no JSON de coleta e resultado.</li>
+            </ul>
+            <h3>O que a extrapolação pressupõe</h3>
+            <p>Pressupomos que o total de votos do segundo turno será próximo ao comparecimento do primeiro e que a proporção atual de cada candidato e de brancos + nulos representará os votos restantes daquela localidade. Projetar separadamente por UF ajusta o peso de estados com ritmos diferentes de apuração, mas não corrige diferenças entre municípios ou regiões dentro do mesmo estado.</p>
+            <p>É uma extrapolação matemática, sem intervalo de confiança nem garantia do resultado final. A projeção pode mudar conforme entram novos votos. As taxas de abstenção e de brancos + nulos também podem mudar entre turnos.</p>
+          </div>
+        </details>
       </section>
 
       <section id="status-panel" class="status-panel hidden" aria-live="polite">
