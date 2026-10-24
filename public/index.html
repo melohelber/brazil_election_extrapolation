@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07111f" />
+    <title>Radar Eleitoral 2026</title>
+    <meta name="description" content="Acompanhamento e extrapolação da apuração presidencial por estado." />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Radar Eleitoral 2026">
+          <span class="brand-mark"><span></span></span>
+          <span><strong>RADAR</strong><small>ELEITORAL 2026</small></span>
+        </a>
+        <div class="source-pill"><span class="pulse"></span><span id="source-label">TSE AO VIVO</span></div>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">PRESIDÊNCIA · 2º TURNO</div>
+        <h1>O retrato da apuração,<br /><span>estado por estado.</span></h1>
+        <p>
+          Colete os dados oficiais daquele instante, confirme a leitura e veja a
+          projeção nacional baseada no comparecimento do primeiro turno.
+        </p>
+        <div class="hero-actions">
+          <button id="refresh-button" class="primary-button" type="button">
+            <span class="button-icon">↻</span>
+            Atualizar apuração
+          </button>
+          <span id="last-updated" class="last-updated">Nenhuma coleta realizada</span>
+        </div>
+      </section>
+
+      <section id="status-panel" class="status-panel hidden" aria-live="polite">
+        <div class="status-copy">
+          <span class="spinner"></span>
+          <div><strong id="status-title">Coletando dados</strong><small id="status-detail">Consultando as 27 UFs e o exterior…</small></div>
+        </div>
+      </section>
+
+      <section id="dashboard" class="dashboard hidden">
+        <div class="section-heading">
+          <div><span class="eyebrow">RESULTADO NACIONAL</span><h2>Brasil</h2></div>
+          <div class="download-actions">
+            <button id="download-collection" class="ghost-button" type="button">Baixar coleta</button>
+            <button id="download-result" class="ghost-button" type="button">Baixar resultado</button>
+          </div>
+        </div>
+        <div id="national-card" class="national-card"></div>
+
+        <div class="section-heading states-heading">
+          <div><span class="eyebrow">MAPA DA CONTAGEM</span><h2>Estados e exterior</h2></div>
+          <label class="search-box"><span>⌕</span><input id="state-search" type="search" placeholder="Buscar UF" /></label>
+        </div>
+        <div id="state-grid" class="state-grid"></div>
+      </section>
+    </main>
+
+    <dialog id="confirm-dialog" class="confirm-dialog">
+      <form method="dialog">
+        <div class="dialog-header">
+          <div><span class="eyebrow">COLETA CONCLUÍDA</span><h2>Conferir antes de projetar</h2></div>
+          <button class="icon-button" value="cancel" aria-label="Fechar">×</button>
+        </div>
+        <p id="dialog-summary" class="dialog-summary"></p>
+        <div id="collection-grid" class="collection-grid"></div>
+        <div class="dialog-actions">
+          <button class="secondary-button" value="cancel">Cancelar</button>
+          <button id="confirm-button" class="primary-button" value="default">Prosseguir com a análise</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

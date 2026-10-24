@@ -1,0 +1,178 @@
+{
+  "eleicao": 6257,
+  "turno": 1,
+  "cargo": "Presidente",
+  "fonte": "Tribunal Superior Eleitoral",
+  "campo_usado_como_comparecimento": "v.tv",
+  "descricao": "Total de pessoas que votaram no primeiro turno, incluindo votos válidos, brancos e nulos.",
+  "locais": {
+    "ac": {
+      "total_votos_primeiro_turno": 488330,
+      "votos_validos_primeiro_turno": 469066,
+      "brancos_primeiro_turno": 5579,
+      "nulos_primeiro_turno": 13685
+    },
+    "al": {
+      "total_votos_primeiro_turno": 1938428,
+      "votos_validos_primeiro_turno": 1818856,
+      "brancos_primeiro_turno": 33712,
+      "nulos_primeiro_turno": 85860
+    },
+    "ap": {
+      "total_votos_primeiro_turno": 476562,
+      "votos_validos_primeiro_turno": 464858,
+      "brancos_primeiro_turno": 4415,
+      "nulos_primeiro_turno": 7289
+    },
+    "am": {
+      "total_votos_primeiro_turno": 2234549,
+      "votos_validos_primeiro_turno": 2170763,
+      "brancos_primeiro_turno": 24402,
+      "nulos_primeiro_turno": 39384
+    },
+    "ba": {
+      "total_votos_primeiro_turno": 9053601,
+      "votos_validos_primeiro_turno": 8560291,
+      "brancos_primeiro_turno": 154936,
+      "nulos_primeiro_turno": 338374
+    },
+    "ce": {
+      "total_votos_primeiro_turno": 5910471,
+      "votos_validos_primeiro_turno": 5617814,
+      "brancos_primeiro_turno": 103295,
+      "nulos_primeiro_turno": 189362
+    },
+    "df": {
+      "total_votos_primeiro_turno": 1831396,
+      "votos_validos_primeiro_turno": 1772808,
+      "brancos_primeiro_turno": 25362,
+      "nulos_primeiro_turno": 33226
+    },
+    "es": {
+      "total_votos_primeiro_turno": 2352282,
+      "votos_validos_primeiro_turno": 2251078,
+      "brancos_primeiro_turno": 43211,
+      "nulos_primeiro_turno": 57993
+    },
+    "go": {
+      "total_votos_primeiro_turno": 3971587,
+      "votos_validos_primeiro_turno": 3827823,
+      "brancos_primeiro_turno": 45643,
+      "nulos_primeiro_turno": 98121
+    },
+    "ma": {
+      "total_votos_primeiro_turno": 4160343,
+      "votos_validos_primeiro_turno": 4010439,
+      "brancos_primeiro_turno": 46315,
+      "nulos_primeiro_turno": 103589
+    },
+    "mt": {
+      "total_votos_primeiro_turno": 2052133,
+      "votos_validos_primeiro_turno": 1993288,
+      "brancos_primeiro_turno": 20756,
+      "nulos_primeiro_turno": 38089
+    },
+    "ms": {
+      "total_votos_primeiro_turno": 1541220,
+      "votos_validos_primeiro_turno": 1490278,
+      "brancos_primeiro_turno": 21270,
+      "nulos_primeiro_turno": 29672
+    },
+    "mg": {
+      "total_votos_primeiro_turno": 12637274,
+      "votos_validos_primeiro_turno": 11976235,
+      "brancos_primeiro_turno": 268302,
+      "nulos_primeiro_turno": 392737
+    },
+    "pa": {
+      "total_votos_primeiro_turno": 5066504,
+      "votos_validos_primeiro_turno": 4863172,
+      "brancos_primeiro_turno": 54203,
+      "nulos_primeiro_turno": 149129
+    },
+    "pb": {
+      "total_votos_primeiro_turno": 2683988,
+      "votos_validos_primeiro_turno": 2513747,
+      "brancos_primeiro_turno": 52297,
+      "nulos_primeiro_turno": 117944
+    },
+    "pr": {
+      "total_votos_primeiro_turno": 6841457,
+      "votos_validos_primeiro_turno": 6585243,
+      "brancos_primeiro_turno": 122499,
+      "nulos_primeiro_turno": 133715
+    },
+    "pe": {
+      "total_votos_primeiro_turno": 5911062,
+      "votos_validos_primeiro_turno": 5601017,
+      "brancos_primeiro_turno": 109491,
+      "nulos_primeiro_turno": 200554
+    },
+    "pi": {
+      "total_votos_primeiro_turno": 2240883,
+      "votos_validos_primeiro_turno": 2146394,
+      "brancos_primeiro_turno": 28329,
+      "nulos_primeiro_turno": 66160
+    },
+    "rj": {
+      "total_votos_primeiro_turno": 9859802,
+      "votos_validos_primeiro_turno": 9369700,
+      "brancos_primeiro_turno": 201979,
+      "nulos_primeiro_turno": 288123
+    },
+    "rn": {
+      "total_votos_primeiro_turno": 2171013,
+      "votos_validos_primeiro_turno": 2071898,
+      "brancos_primeiro_turno": 33172,
+      "nulos_primeiro_turno": 65943
+    },
+    "rs": {
+      "total_votos_primeiro_turno": 6702903,
+      "votos_validos_primeiro_turno": 6423046,
+      "brancos_primeiro_turno": 148339,
+      "nulos_primeiro_turno": 131518
+    },
+    "ro": {
+      "total_votos_primeiro_turno": 991080,
+      "votos_validos_primeiro_turno": 968059,
+      "brancos_primeiro_turno": 9846,
+      "nulos_primeiro_turno": 13175
+    },
+    "rr": {
+      "total_votos_primeiro_turno": 332772,
+      "votos_validos_primeiro_turno": 325545,
+      "brancos_primeiro_turno": 2618,
+      "nulos_primeiro_turno": 4609
+    },
+    "sc": {
+      "total_votos_primeiro_turno": 4648159,
+      "votos_validos_primeiro_turno": 4500897,
+      "brancos_primeiro_turno": 69007,
+      "nulos_primeiro_turno": 78255
+    },
+    "sp": {
+      "total_votos_primeiro_turno": 26431992,
+      "votos_validos_primeiro_turno": 24882948,
+      "brancos_primeiro_turno": 632801,
+      "nulos_primeiro_turno": 916243
+    },
+    "se": {
+      "total_votos_primeiro_turno": 1439082,
+      "votos_validos_primeiro_turno": 1364196,
+      "brancos_primeiro_turno": 24859,
+      "nulos_primeiro_turno": 50027
+    },
+    "to": {
+      "total_votos_primeiro_turno": 965196,
+      "votos_validos_primeiro_turno": 930447,
+      "brancos_primeiro_turno": 8344,
+      "nulos_primeiro_turno": 26405
+    },
+    "exterior": {
+      "total_votos_primeiro_turno": 341766,
+      "votos_validos_primeiro_turno": 330882,
+      "brancos_primeiro_turno": 5816,
+      "nulos_primeiro_turno": 5068
+    }
+  }
+}

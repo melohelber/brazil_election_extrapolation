@@ -1,0 +1,1536 @@
+{
+  "resultados": [
+    {
+      "local": "AC",
+      "votos_totais_primeiro_turno": 488330,
+      "atual": {
+        "uf": "AC",
+        "total_votos": 72930,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 69.2003,
+            "votos_brutos": 45421
+          },
+          "lula": {
+            "percentual_sobre_validos": 30.7997,
+            "votos_brutos": 20216
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 65637
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 7293
+          }
+        }
+      },
+      "projetado": {
+        "uf": "AC",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 488330,
+          "votos_apurados": 72930
+        },
+        "fator_extrapolacao": 6.695872754696284,
+        "total_votos": 488330,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 69.2002,
+            "votos_brutos": 304133
+          },
+          "lula": {
+            "percentual_sobre_validos": 30.7998,
+            "votos_brutos": 135364
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 439497
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 48833
+          }
+        }
+      }
+    },
+    {
+      "local": "AL",
+      "votos_totais_primeiro_turno": 1938428,
+      "atual": {
+        "uf": "AL",
+        "total_votos": 230823,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 42.4981,
+            "votos_brutos": 88286
+          },
+          "lula": {
+            "percentual_sobre_validos": 57.5019,
+            "votos_brutos": 119455
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 207741
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 23082
+          }
+        }
+      },
+      "projetado": {
+        "uf": "AL",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 1938428,
+          "votos_apurados": 230823
+        },
+        "fator_extrapolacao": 8.397897956442815,
+        "total_votos": 1938428,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 42.4981,
+            "votos_brutos": 741417
+          },
+          "lula": {
+            "percentual_sobre_validos": 57.5019,
+            "votos_brutos": 1003171
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 1744588
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 193840
+          }
+        }
+      }
+    },
+    {
+      "local": "AP",
+      "votos_totais_primeiro_turno": 476562,
+      "atual": {
+        "uf": "AP",
+        "total_votos": 47198,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 49.9741,
+            "votos_brutos": 21228
+          },
+          "lula": {
+            "percentual_sobre_validos": 50.0259,
+            "votos_brutos": 21250
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9996,
+            "votos_brutos": 42478
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0004,
+            "votos_brutos": 4720
+          }
+        }
+      },
+      "projetado": {
+        "uf": "AP",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 476562,
+          "votos_apurados": 47198
+        },
+        "fator_extrapolacao": 10.097080384762066,
+        "total_votos": 476562,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 49.9741,
+            "votos_brutos": 214341
+          },
+          "lula": {
+            "percentual_sobre_validos": 50.0259,
+            "votos_brutos": 214563
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9996,
+            "votos_brutos": 428904
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0004,
+            "votos_brutos": 47658
+          }
+        }
+      }
+    },
+    {
+      "local": "AM",
+      "votos_totais_primeiro_turno": 2234549,
+      "atual": {
+        "uf": "AM",
+        "total_votos": 179890,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 48.2647,
+            "votos_brutos": 78141
+          },
+          "lula": {
+            "percentual_sobre_validos": 51.7353,
+            "votos_brutos": 83760
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 161901
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 17989
+          }
+        }
+      },
+      "projetado": {
+        "uf": "AM",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 2234549,
+          "votos_apurados": 179890
+        },
+        "fator_extrapolacao": 12.421752181888932,
+        "total_votos": 2234549,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 48.2647,
+            "votos_brutos": 970648
+          },
+          "lula": {
+            "percentual_sobre_validos": 51.7353,
+            "votos_brutos": 1040446
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 2011094
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 223455
+          }
+        }
+      }
+    },
+    {
+      "local": "BA",
+      "votos_totais_primeiro_turno": 9053601,
+      "atual": {
+        "uf": "BA",
+        "total_votos": 1080981,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 30.128,
+            "votos_brutos": 293110
+          },
+          "lula": {
+            "percentual_sobre_validos": 69.872,
+            "votos_brutos": 679773
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 972883
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 108098
+          }
+        }
+      },
+      "projetado": {
+        "uf": "BA",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 9053601,
+          "votos_apurados": 1080981
+        },
+        "fator_extrapolacao": 8.375356273607029,
+        "total_votos": 9053601,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 30.128,
+            "votos_brutos": 2454901
+          },
+          "lula": {
+            "percentual_sobre_validos": 69.872,
+            "votos_brutos": 5693341
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 8148242
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 905359
+          }
+        }
+      }
+    },
+    {
+      "local": "CE",
+      "votos_totais_primeiro_turno": 5910471,
+      "atual": {
+        "uf": "CE",
+        "total_votos": 590235,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 33.0725,
+            "votos_brutos": 175685
+          },
+          "lula": {
+            "percentual_sobre_validos": 66.9275,
+            "votos_brutos": 355526
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9999,
+            "votos_brutos": 531211
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0001,
+            "votos_brutos": 59024
+          }
+        }
+      },
+      "projetado": {
+        "uf": "CE",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 5910471,
+          "votos_apurados": 590235
+        },
+        "fator_extrapolacao": 10.013758926529263,
+        "total_votos": 5910471,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 33.0725,
+            "votos_brutos": 1759267
+          },
+          "lula": {
+            "percentual_sobre_validos": 66.9275,
+            "votos_brutos": 3560152
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9999,
+            "votos_brutos": 5319419
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0001,
+            "votos_brutos": 591052
+          }
+        }
+      }
+    },
+    {
+      "local": "DF",
+      "votos_totais_primeiro_turno": 1831396,
+      "atual": {
+        "uf": "DF",
+        "total_votos": 792621,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 57.3802,
+            "votos_brutos": 409327
+          },
+          "lula": {
+            "percentual_sobre_validos": 42.6198,
+            "votos_brutos": 304032
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 713359
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 79262
+          }
+        }
+      },
+      "projetado": {
+        "uf": "DF",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 1831396,
+          "votos_apurados": 792621
+        },
+        "fator_extrapolacao": 2.3105570001299487,
+        "total_votos": 1831396,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 57.3802,
+            "votos_brutos": 945773
+          },
+          "lula": {
+            "percentual_sobre_validos": 42.6198,
+            "votos_brutos": 702483
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 1648256
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 183140
+          }
+        }
+      }
+    },
+    {
+      "local": "ES",
+      "votos_totais_primeiro_turno": 2352282,
+      "atual": {
+        "uf": "ES",
+        "total_votos": 1157345,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 59.1965,
+            "votos_brutos": 616597
+          },
+          "lula": {
+            "percentual_sobre_validos": 40.8035,
+            "votos_brutos": 425014
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 1041611
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 115734
+          }
+        }
+      },
+      "projetado": {
+        "uf": "ES",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 2352282,
+          "votos_apurados": 1157345
+        },
+        "fator_extrapolacao": 2.032481239388428,
+        "total_votos": 2352282,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 59.1965,
+            "votos_brutos": 1253222
+          },
+          "lula": {
+            "percentual_sobre_validos": 40.8035,
+            "votos_brutos": 863833
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 2117055
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 235227
+          }
+        }
+      }
+    },
+    {
+      "local": "GO",
+      "votos_totais_primeiro_turno": 3971587,
+      "atual": {
+        "uf": "GO",
+        "total_votos": 1440341,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 63.3149,
+            "votos_brutos": 820755
+          },
+          "lula": {
+            "percentual_sobre_validos": 36.6851,
+            "votos_brutos": 475552
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 1296307
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 144034
+          }
+        }
+      },
+      "projetado": {
+        "uf": "GO",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 3971587,
+          "votos_apurados": 1440341
+        },
+        "fator_extrapolacao": 2.757393561663523,
+        "total_votos": 3971587,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 63.3149,
+            "votos_brutos": 2263145
+          },
+          "lula": {
+            "percentual_sobre_validos": 36.6851,
+            "votos_brutos": 1311284
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 3574429
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 397158
+          }
+        }
+      }
+    },
+    {
+      "local": "MA",
+      "votos_totais_primeiro_turno": 4160343,
+      "atual": {
+        "uf": "MA",
+        "total_votos": 380534,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 32.5606,
+            "votos_brutos": 111514
+          },
+          "lula": {
+            "percentual_sobre_validos": 67.4394,
+            "votos_brutos": 230967
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 342481
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 38053
+          }
+        }
+      },
+      "projetado": {
+        "uf": "MA",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 4160343,
+          "votos_apurados": 380534
+        },
+        "fator_extrapolacao": 10.932907440596635,
+        "total_votos": 4160343,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 32.5606,
+            "votos_brutos": 1219172
+          },
+          "lula": {
+            "percentual_sobre_validos": 67.4394,
+            "votos_brutos": 2525141
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 3744313
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 416030
+          }
+        }
+      }
+    },
+    {
+      "local": "MT",
+      "votos_totais_primeiro_turno": 2052133,
+      "atual": {
+        "uf": "MT",
+        "total_votos": 731212,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 69.0639,
+            "votos_brutos": 454503
+          },
+          "lula": {
+            "percentual_sobre_validos": 30.9361,
+            "votos_brutos": 203588
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 658091
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 73121
+          }
+        }
+      },
+      "projetado": {
+        "uf": "MT",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 2052133,
+          "votos_apurados": 731212
+        },
+        "fator_extrapolacao": 2.8064815675891532,
+        "total_votos": 2052133,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 69.0638,
+            "votos_brutos": 1275554
+          },
+          "lula": {
+            "percentual_sobre_validos": 30.9362,
+            "votos_brutos": 571366
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 1846920
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 205213
+          }
+        }
+      }
+    },
+    {
+      "local": "MS",
+      "votos_totais_primeiro_turno": 1541220,
+      "atual": {
+        "uf": "MS",
+        "total_votos": 648762,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 62.8217,
+            "votos_brutos": 366807
+          },
+          "lula": {
+            "percentual_sobre_validos": 37.1783,
+            "votos_brutos": 217079
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 583886
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 64876
+          }
+        }
+      },
+      "projetado": {
+        "uf": "MS",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 1541220,
+          "votos_apurados": 648762
+        },
+        "fator_extrapolacao": 2.3756323582453964,
+        "total_votos": 1541220,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 62.8217,
+            "votos_brutos": 871399
+          },
+          "lula": {
+            "percentual_sobre_validos": 37.1783,
+            "votos_brutos": 515700
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 1387099
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 154121
+          }
+        }
+      }
+    },
+    {
+      "local": "MG",
+      "votos_totais_primeiro_turno": 12637274,
+      "atual": {
+        "uf": "MG",
+        "total_votos": 6701740,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 52.6837,
+            "votos_brutos": 3177651
+          },
+          "lula": {
+            "percentual_sobre_validos": 47.3163,
+            "votos_brutos": 2853915
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 6031566
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 670174
+          }
+        }
+      },
+      "projetado": {
+        "uf": "MG",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 12637274,
+          "votos_apurados": 6701740
+        },
+        "fator_extrapolacao": 1.8856705870415742,
+        "total_votos": 12637274,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 52.6837,
+            "votos_brutos": 5992003
+          },
+          "lula": {
+            "percentual_sobre_validos": 47.3163,
+            "votos_brutos": 5381544
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 11373547
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 1263727
+          }
+        }
+      }
+    },
+    {
+      "local": "PA",
+      "votos_totais_primeiro_turno": 5066504,
+      "atual": {
+        "uf": "PA",
+        "total_votos": 408107,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 47.1328,
+            "votos_brutos": 173117
+          },
+          "lula": {
+            "percentual_sobre_validos": 52.8672,
+            "votos_brutos": 194179
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9999,
+            "votos_brutos": 367296
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0001,
+            "votos_brutos": 40811
+          }
+        }
+      },
+      "projetado": {
+        "uf": "PA",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 5066504,
+          "votos_apurados": 408107
+        },
+        "fator_extrapolacao": 12.414646158973014,
+        "total_votos": 5066504,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 47.1328,
+            "votos_brutos": 2149186
+          },
+          "lula": {
+            "percentual_sobre_validos": 52.8672,
+            "votos_brutos": 2410664
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9999,
+            "votos_brutos": 4559850
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0001,
+            "votos_brutos": 506654
+          }
+        }
+      }
+    },
+    {
+      "local": "PB",
+      "votos_totais_primeiro_turno": 2683988,
+      "atual": {
+        "uf": "PB",
+        "total_votos": 316333,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 35.0421,
+            "votos_brutos": 99765
+          },
+          "lula": {
+            "percentual_sobre_validos": 64.9579,
+            "votos_brutos": 184935
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 284700
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 31633
+          }
+        }
+      },
+      "projetado": {
+        "uf": "PB",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 2683988,
+          "votos_apurados": 316333
+        },
+        "fator_extrapolacao": 8.484691764691005,
+        "total_votos": 2683988,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 35.0421,
+            "votos_brutos": 846475
+          },
+          "lula": {
+            "percentual_sobre_validos": 64.9579,
+            "votos_brutos": 1569117
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 2415592
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 268396
+          }
+        }
+      }
+    },
+    {
+      "local": "PR",
+      "votos_totais_primeiro_turno": 6841457,
+      "atual": {
+        "uf": "PR",
+        "total_votos": 3999961,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 65.7564,
+            "votos_brutos": 2367207
+          },
+          "lula": {
+            "percentual_sobre_validos": 34.2436,
+            "votos_brutos": 1232758
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 3599965
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 399996
+          }
+        }
+      },
+      "projetado": {
+        "uf": "PR",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 6841457,
+          "votos_apurados": 3999961
+        },
+        "fator_extrapolacao": 1.7103809262140306,
+        "total_votos": 6841457,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 65.7564,
+            "votos_brutos": 4048826
+          },
+          "lula": {
+            "percentual_sobre_validos": 34.2436,
+            "votos_brutos": 2108486
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 6157312
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 684145
+          }
+        }
+      }
+    },
+    {
+      "local": "PE",
+      "votos_totais_primeiro_turno": 5911062,
+      "atual": {
+        "uf": "PE",
+        "total_votos": 646802,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 32.8428,
+            "votos_brutos": 191185
+          },
+          "lula": {
+            "percentual_sobre_validos": 67.1572,
+            "votos_brutos": 390937
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 582122
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 64680
+          }
+        }
+      },
+      "projetado": {
+        "uf": "PE",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 5911062,
+          "votos_apurados": 646802
+        },
+        "fator_extrapolacao": 9.13890495081957,
+        "total_votos": 5911062,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 32.8428,
+            "votos_brutos": 1747222
+          },
+          "lula": {
+            "percentual_sobre_validos": 67.1572,
+            "votos_brutos": 3572736
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 5319958
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 591104
+          }
+        }
+      }
+    },
+    {
+      "local": "PI",
+      "votos_totais_primeiro_turno": 2240883,
+      "atual": {
+        "uf": "PI",
+        "total_votos": 226749,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 25.3354,
+            "votos_brutos": 51703
+          },
+          "lula": {
+            "percentual_sobre_validos": 74.6646,
+            "votos_brutos": 152371
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 204074
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 22675
+          }
+        }
+      },
+      "projetado": {
+        "uf": "PI",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 2240883,
+          "votos_apurados": 226749
+        },
+        "fator_extrapolacao": 9.88265879893627,
+        "total_votos": 2240883,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 25.3354,
+            "votos_brutos": 510963
+          },
+          "lula": {
+            "percentual_sobre_validos": 74.6646,
+            "votos_brutos": 1505831
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 2016794
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 224089
+          }
+        }
+      }
+    },
+    {
+      "local": "RJ",
+      "votos_totais_primeiro_turno": 9859802,
+      "atual": {
+        "uf": "RJ",
+        "total_votos": 5580802,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 57.3548,
+            "votos_brutos": 2880770
+          },
+          "lula": {
+            "percentual_sobre_validos": 42.6452,
+            "votos_brutos": 2141952
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 5022722
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 558080
+          }
+        }
+      },
+      "projetado": {
+        "uf": "RJ",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 9859802,
+          "votos_apurados": 5580802
+        },
+        "fator_extrapolacao": 1.766735677058602,
+        "total_votos": 9859802,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 57.3548,
+            "votos_brutos": 5089559
+          },
+          "lula": {
+            "percentual_sobre_validos": 42.6452,
+            "votos_brutos": 3784263
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 8873822
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 985980
+          }
+        }
+      }
+    },
+    {
+      "local": "RN",
+      "votos_totais_primeiro_turno": 2171013,
+      "atual": {
+        "uf": "RN",
+        "total_votos": 304649,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 36.7888,
+            "votos_brutos": 100869
+          },
+          "lula": {
+            "percentual_sobre_validos": 63.2112,
+            "votos_brutos": 173315
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 274184
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 30465
+          }
+        }
+      },
+      "projetado": {
+        "uf": "RN",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 2171013,
+          "votos_apurados": 304649
+        },
+        "fator_extrapolacao": 7.12627646898562,
+        "total_votos": 2171013,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 36.7888,
+            "votos_brutos": 718820
+          },
+          "lula": {
+            "percentual_sobre_validos": 63.2112,
+            "votos_brutos": 1235091
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 1953911
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 217102
+          }
+        }
+      }
+    },
+    {
+      "local": "RS",
+      "votos_totais_primeiro_turno": 6702903,
+      "atual": {
+        "uf": "RS",
+        "total_votos": 4042773,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 60.8973,
+            "votos_brutos": 2215745
+          },
+          "lula": {
+            "percentual_sobre_validos": 39.1027,
+            "votos_brutos": 1422751
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 3638496
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 404277
+          }
+        }
+      },
+      "projetado": {
+        "uf": "RS",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 6702903,
+          "votos_apurados": 4042773
+        },
+        "fator_extrapolacao": 1.6579963802073479,
+        "total_votos": 6702903,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 60.8973,
+            "votos_brutos": 3673697
+          },
+          "lula": {
+            "percentual_sobre_validos": 39.1027,
+            "votos_brutos": 2358916
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 6032613
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 670290
+          }
+        }
+      }
+    },
+    {
+      "local": "RO",
+      "votos_totais_primeiro_turno": 991080,
+      "atual": {
+        "uf": "RO",
+        "total_votos": 180731,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 72.2608,
+            "votos_brutos": 117538
+          },
+          "lula": {
+            "percentual_sobre_validos": 27.7392,
+            "votos_brutos": 45120
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 162658
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 18073
+          }
+        }
+      },
+      "projetado": {
+        "uf": "RO",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 991080,
+          "votos_apurados": 180731
+        },
+        "fator_extrapolacao": 5.483729963315646,
+        "total_votos": 991080,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 72.2608,
+            "votos_brutos": 644547
+          },
+          "lula": {
+            "percentual_sobre_validos": 27.7392,
+            "votos_brutos": 247426
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 891973
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 99107
+          }
+        }
+      }
+    },
+    {
+      "local": "RR",
+      "votos_totais_primeiro_turno": 332772,
+      "atual": {
+        "uf": "RR",
+        "total_votos": 67942,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 75.6591,
+            "votos_brutos": 46264
+          },
+          "lula": {
+            "percentual_sobre_validos": 24.3409,
+            "votos_brutos": 14884
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0003,
+            "votos_brutos": 61148
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9997,
+            "votos_brutos": 6794
+          }
+        }
+      },
+      "projetado": {
+        "uf": "RR",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 332772,
+          "votos_apurados": 67942
+        },
+        "fator_extrapolacao": 4.8978834888581435,
+        "total_votos": 332772,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 75.6591,
+            "votos_brutos": 226596
+          },
+          "lula": {
+            "percentual_sobre_validos": 24.3409,
+            "votos_brutos": 72900
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0004,
+            "votos_brutos": 299496
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9996,
+            "votos_brutos": 33276
+          }
+        }
+      }
+    },
+    {
+      "local": "SC",
+      "votos_totais_primeiro_turno": 4648159,
+      "atual": {
+        "uf": "SC",
+        "total_votos": 2980746,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 72.6892,
+            "votos_brutos": 1950013
+          },
+          "lula": {
+            "percentual_sobre_validos": 27.3108,
+            "votos_brutos": 732659
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 2682672
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 298074
+          }
+        }
+      },
+      "projetado": {
+        "uf": "SC",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 4648159,
+          "votos_apurados": 2980746
+        },
+        "fator_extrapolacao": 1.5593945274102523,
+        "total_votos": 4648159,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 72.6892,
+            "votos_brutos": 3040840
+          },
+          "lula": {
+            "percentual_sobre_validos": 27.3108,
+            "votos_brutos": 1142504
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 4183344
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 464815
+          }
+        }
+      }
+    },
+    {
+      "local": "SP",
+      "votos_totais_primeiro_turno": 26431992,
+      "atual": {
+        "uf": "SP",
+        "total_votos": 17443561,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 57.617,
+            "votos_brutos": 9045416
+          },
+          "lula": {
+            "percentual_sobre_validos": 42.383,
+            "votos_brutos": 6653789
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 15699205
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 1744356
+          }
+        }
+      },
+      "projetado": {
+        "uf": "SP",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 26431992,
+          "votos_apurados": 17443561
+        },
+        "fator_extrapolacao": 1.515286471609782,
+        "total_votos": 26431992,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 57.617,
+            "votos_brutos": 13706397
+          },
+          "lula": {
+            "percentual_sobre_validos": 42.383,
+            "votos_brutos": 10082396
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0,
+            "votos_brutos": 23788793
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0,
+            "votos_brutos": 2643199
+          }
+        }
+      }
+    },
+    {
+      "local": "SE",
+      "votos_totais_primeiro_turno": 1439082,
+      "atual": {
+        "uf": "SE",
+        "total_votos": 184001,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 32.8011,
+            "votos_brutos": 54319
+          },
+          "lula": {
+            "percentual_sobre_validos": 67.1989,
+            "votos_brutos": 111282
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 165601
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 18400
+          }
+        }
+      },
+      "projetado": {
+        "uf": "SE",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 1439082,
+          "votos_apurados": 184001
+        },
+        "fator_extrapolacao": 7.82105532035152,
+        "total_votos": 1439082,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 32.8011,
+            "votos_brutos": 424832
+          },
+          "lula": {
+            "percentual_sobre_validos": 67.1989,
+            "votos_brutos": 870343
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0001,
+            "votos_brutos": 1295175
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9999,
+            "votos_brutos": 143907
+          }
+        }
+      }
+    },
+    {
+      "local": "TO",
+      "votos_totais_primeiro_turno": 965196,
+      "atual": {
+        "uf": "TO",
+        "total_votos": 145555,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 53.7393,
+            "votos_brutos": 70398
+          },
+          "lula": {
+            "percentual_sobre_validos": 46.2607,
+            "votos_brutos": 60601
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9997,
+            "votos_brutos": 130999
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0003,
+            "votos_brutos": 14556
+          }
+        }
+      },
+      "projetado": {
+        "uf": "TO",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 965196,
+          "votos_apurados": 145555
+        },
+        "fator_extrapolacao": 6.631142866957507,
+        "total_votos": 965196,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 53.7393,
+            "votos_brutos": 466819
+          },
+          "lula": {
+            "percentual_sobre_validos": 46.2607,
+            "votos_brutos": 401854
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 89.9996,
+            "votos_brutos": 868673
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 10.0004,
+            "votos_brutos": 96523
+          }
+        }
+      }
+    },
+    {
+      "local": "EXTERIOR",
+      "votos_totais_primeiro_turno": 341766,
+      "atual": {
+        "uf": "EXTERIOR",
+        "total_votos": 34177,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 47.7621,
+            "votos_brutos": 15804
+          },
+          "lula": {
+            "percentual_sobre_validos": 52.2379,
+            "votos_brutos": 17285
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 96.8166,
+            "votos_brutos": 33089
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 3.1834,
+            "votos_brutos": 1088
+          }
+        }
+      },
+      "projetado": {
+        "uf": "EXTERIOR",
+        "base_extrapolacao": {
+          "votos_totais_primeiro_turno": 341766,
+          "votos_apurados": 34177
+        },
+        "fator_extrapolacao": 9.999882962226058,
+        "total_votos": 341766,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 47.7621,
+            "votos_brutos": 158038
+          },
+          "lula": {
+            "percentual_sobre_validos": 52.2379,
+            "votos_brutos": 172848
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 96.8165,
+            "votos_brutos": 330886
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 3.1835,
+            "votos_brutos": 10880
+          }
+        }
+      }
+    },
+    {
+      "local": "BRASIL",
+      "votos_totais_primeiro_turno": 125275835,
+      "atual": {
+        "uf": "BRASIL",
+        "total_votos": 50617501,
+        "resultado_atual": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 57.1559,
+            "votos_brutos": 26039138
+          },
+          "lula": {
+            "percentual_sobre_validos": 42.8441,
+            "votos_brutos": 19518945
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0046,
+            "votos_brutos": 45558083
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9954,
+            "votos_brutos": 5059418
+          }
+        }
+      },
+      "projetado": {
+        "uf": "BRASIL",
+        "total_votos": 125275835,
+        "resultado_extrapolado": {
+          "flavio_bolsonaro": {
+            "percentual_sobre_validos": 51.1812,
+            "votos_brutos": 57717792
+          },
+          "lula": {
+            "percentual_sobre_validos": 48.8188,
+            "votos_brutos": 55053763
+          },
+          "votos_validos": {
+            "percentual_sobre_total": 90.0186,
+            "votos_brutos": 112771555
+          },
+          "brancos_nulos": {
+            "percentual_sobre_total": 9.9814,
+            "votos_brutos": 12504280
+          }
+        }
+      }
+    }
+  ]
+}

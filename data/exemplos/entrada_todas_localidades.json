@@ -1,0 +1,146 @@
+{
+  "exemplo_hipotetico": true,
+  "observacao": "Simulação estrutural; não representa a apuração real do segundo turno. O total_votos_apurados representa votos individuais já contados, incluindo Flávio Bolsonaro, Lula, brancos e nulos.",
+  "estados": {
+    "ac": {
+      "total_votos_apurados": 72930,
+      "votos_flavio_bolsonaro": 45421,
+      "votos_lula": 20216
+    },
+    "al": {
+      "total_votos_apurados": 230823,
+      "votos_flavio_bolsonaro": 88286,
+      "votos_lula": 119455
+    },
+    "ap": {
+      "total_votos_apurados": 47198,
+      "votos_flavio_bolsonaro": 21228,
+      "votos_lula": 21250
+    },
+    "am": {
+      "total_votos_apurados": 179890,
+      "votos_flavio_bolsonaro": 78141,
+      "votos_lula": 83760
+    },
+    "ba": {
+      "total_votos_apurados": 1080981,
+      "votos_flavio_bolsonaro": 293110,
+      "votos_lula": 679773
+    },
+    "ce": {
+      "total_votos_apurados": 590235,
+      "votos_flavio_bolsonaro": 175685,
+      "votos_lula": 355526
+    },
+    "df": {
+      "total_votos_apurados": 792621,
+      "votos_flavio_bolsonaro": 409327,
+      "votos_lula": 304032
+    },
+    "es": {
+      "total_votos_apurados": 1157345,
+      "votos_flavio_bolsonaro": 616597,
+      "votos_lula": 425014
+    },
+    "go": {
+      "total_votos_apurados": 1440341,
+      "votos_flavio_bolsonaro": 820755,
+      "votos_lula": 475552
+    },
+    "ma": {
+      "total_votos_apurados": 380534,
+      "votos_flavio_bolsonaro": 111514,
+      "votos_lula": 230967
+    },
+    "mt": {
+      "total_votos_apurados": 731212,
+      "votos_flavio_bolsonaro": 454503,
+      "votos_lula": 203588
+    },
+    "ms": {
+      "total_votos_apurados": 648762,
+      "votos_flavio_bolsonaro": 366807,
+      "votos_lula": 217079
+    },
+    "mg": {
+      "total_votos_apurados": 6701740,
+      "votos_flavio_bolsonaro": 3177651,
+      "votos_lula": 2853915
+    },
+    "pa": {
+      "total_votos_apurados": 408107,
+      "votos_flavio_bolsonaro": 173117,
+      "votos_lula": 194179
+    },
+    "pb": {
+      "total_votos_apurados": 316333,
+      "votos_flavio_bolsonaro": 99765,
+      "votos_lula": 184935
+    },
+    "pr": {
+      "total_votos_apurados": 3999961,
+      "votos_flavio_bolsonaro": 2367207,
+      "votos_lula": 1232758
+    },
+    "pe": {
+      "total_votos_apurados": 646802,
+      "votos_flavio_bolsonaro": 191185,
+      "votos_lula": 390937
+    },
+    "pi": {
+      "total_votos_apurados": 226749,
+      "votos_flavio_bolsonaro": 51703,
+      "votos_lula": 152371
+    },
+    "rj": {
+      "total_votos_apurados": 5580802,
+      "votos_flavio_bolsonaro": 2880770,
+      "votos_lula": 2141952
+    },
+    "rn": {
+      "total_votos_apurados": 304649,
+      "votos_flavio_bolsonaro": 100869,
+      "votos_lula": 173315
+    },
+    "rs": {
+      "total_votos_apurados": 4042773,
+      "votos_flavio_bolsonaro": 2215745,
+      "votos_lula": 1422751
+    },
+    "ro": {
+      "total_votos_apurados": 180731,
+      "votos_flavio_bolsonaro": 117538,
+      "votos_lula": 45120
+    },
+    "rr": {
+      "total_votos_apurados": 67942,
+      "votos_flavio_bolsonaro": 46264,
+      "votos_lula": 14884
+    },
+    "sc": {
+      "total_votos_apurados": 2980746,
+      "votos_flavio_bolsonaro": 1950013,
+      "votos_lula": 732659
+    },
+    "sp": {
+      "total_votos_apurados": 17443561,
+      "votos_flavio_bolsonaro": 9045416,
+      "votos_lula": 6653789
+    },
+    "se": {
+      "total_votos_apurados": 184001,
+      "votos_flavio_bolsonaro": 54319,
+      "votos_lula": 111282
+    },
+    "to": {
+      "total_votos_apurados": 145555,
+      "votos_flavio_bolsonaro": 70398,
+      "votos_lula": 60601
+    },
+    "exterior": {
+      "total_votos_apurados": 34177,
+      "votos_flavio_bolsonaro": 15804,
+      "votos_lula": 17285
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "estados": {
+    "ce": {
+      "total_votos_apurados": 1000000,
+      "votos_flavio_bolsonaro": 250000,
+      "votos_lula": 650000
+    }
+  }
+}

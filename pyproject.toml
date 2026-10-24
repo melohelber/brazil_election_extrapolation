@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apuracao-presidente-2026"
+version = "1.0.0"
+description = "Coleta e projeção da apuração presidencial de 2026"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+apuracao-presidente = "apuracao_presidente.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
