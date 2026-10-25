@@ -7,6 +7,9 @@ do exterior e do Brasil.
 O mesmo domínio atende dois modos: a CLI original e uma interface web responsiva
 com frontend estático e backend Python em Vercel Functions.
 
+As Functions instalam suas dependências por `requirements.txt`; o `pyproject.toml`
+continua sendo a definição do pacote para a CLI e o desenvolvimento local.
+
 ## Interface web
 
 Para abrir o fluxo completo localmente usando dados mockados:
