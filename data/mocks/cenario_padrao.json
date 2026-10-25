@@ -1,6 +1,7 @@
 {
   "exemplo_hipotetico": true,
   "observacao": "Simulação estrutural; não representa a apuração real do segundo turno. O total_votos_apurados representa votos individuais já contados, incluindo Flávio Bolsonaro, Lula, brancos e nulos.",
+  "percentual_secoes_totalizadas_padrao": 25.0,
   "estados": {
     "ac": {
       "total_votos_apurados": 72930,

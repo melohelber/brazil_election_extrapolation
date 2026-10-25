@@ -59,10 +59,19 @@ function showConfirmation(collection) {
     : `${withoutVotes} localidades sem votos apurados; ${rows.filter((item) => item.status === "erro").length} com erro de coleta. A análise ficará disponível quando todas tiverem votos. Use “Testar com dados simulados” para experimentar agora.`;
   document.querySelector("#collection-grid").innerHTML = rows.map((item) => `
     <div class="collection-item ${item.status}">
-      <span>${item.local}</span><span>${item.status === "ok" ? "OK" : item.status === "sem_votos" ? "SEM VOTOS" : "ERRO"}</span>
+      <span>${item.local}</span><span>${collectionStatus(item)}</span>
     </div>`).join("");
   confirmButton.disabled = !ready;
   dialog.showModal();
+}
+
+function collectionStatus(item) {
+  if (item.status === "sem_votos") return "SEM VOTOS";
+  if (item.status === "erro") return "ERRO";
+  const sections = item.percentual_secoes_totalizadas;
+  return sections === null || sections === undefined
+    ? "OK"
+    : `OK · ${percent(sections)}`;
 }
 
 async function collect() {

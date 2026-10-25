@@ -29,6 +29,7 @@ def dados_tse(*, codigo: str = "ce", finalizada: bool = False) -> dict:
         "dg": "25/10/2026",
         "hg": "19:30:00",
         "idg": "123",
+        "s": {"ts": "1000", "st": "127", "pst": "12,70", "pstn": "12.7"},
         "carg": [
             {
                 "cd": "1",
@@ -61,6 +62,7 @@ class ColetaSnapshotTest(unittest.TestCase):
         self.assertTrue(resultado["apuracao_finalizada"])
         self.assertEqual(resultado["votos_brancos"], 40)
         self.assertEqual(resultado["votos_nulos"], 60)
+        self.assertEqual(resultado["percentual_secoes_totalizadas"], 12.7)
 
     def test_rejeita_total_inconsistente(self) -> None:
         dados = dados_tse()

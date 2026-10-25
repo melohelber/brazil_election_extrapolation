@@ -82,6 +82,11 @@ def collect_web_snapshot(
                     else "sem_votos" if states[location]["total_votos_apurados"] == 0
                     else "ok"
                 ),
+                "percentual_secoes_totalizadas": (
+                    states[location].get("percentual_secoes_totalizadas")
+                    if location in states
+                    else None
+                ),
                 "erro": errors.get(location),
             }
             for location in RESULT_LOCATIONS

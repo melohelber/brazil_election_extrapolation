@@ -16,6 +16,9 @@ class MockSecondRoundSource:
         self.scenario_path = scenario_path
         self.states = scenario.get("estados")
         self.reference = reference.get("locais")
+        self.default_sections_percentage = scenario.get(
+            "percentual_secoes_totalizadas_padrao"
+        )
 
         if not isinstance(self.states, dict):
             raise ValueError("O mock deve conter um objeto chamado 'estados'")
@@ -79,6 +82,19 @@ class MockSecondRoundSource:
             raise ValueError(
                 f"apuracao_finalizada de {location.upper()} deve ser booleano"
             )
+        sections_percentage_raw = data.get(
+            "percentual_secoes_totalizadas",
+            self.default_sections_percentage,
+        )
+        sections_percentage = (
+            float(sections_percentage_raw)
+            if sections_percentage_raw is not None
+            else None
+        )
+        if sections_percentage is not None and not 0 <= sections_percentage <= 100:
+            raise ValueError(
+                f"Percentual de seções inválido no mock de {location.upper()}"
+            )
 
         return {
             "total_votos_apurados": total,
@@ -86,6 +102,7 @@ class MockSecondRoundSource:
             "votos_lula": lula,
             "votos_brancos": blank,
             "votos_nulos": null,
+            "percentual_secoes_totalizadas": sections_percentage,
             "apuracao_finalizada": finished,
             "gerado_em_tse": {
                 "data": None,

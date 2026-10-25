@@ -164,9 +164,18 @@ def normalize_second_round(
     lula = candidate_votes[LULA_NUMBER]
     blank = int(votes["vb"])
     null = int(votes["tvn"])
+    sections = data.get("s", {})
+    sections_percentage_raw = sections.get("pstn", sections.get("pst"))
+    sections_percentage = (
+        float(str(sections_percentage_raw).replace(",", "."))
+        if sections_percentage_raw is not None
+        else None
+    )
 
     if min(total, flavio, lula, blank, null) < 0:
         raise ValueError("o TSE retornou uma quantidade negativa de votos")
+    if sections_percentage is not None and not 0 <= sections_percentage <= 100:
+        raise ValueError("percentual de seções totalizadas fora do intervalo esperado")
     component_sum = flavio + lula + blank + null
     if component_sum != total:
         raise ValueError(
@@ -180,6 +189,7 @@ def normalize_second_round(
         "votos_lula": lula,
         "votos_brancos": blank,
         "votos_nulos": null,
+        "percentual_secoes_totalizadas": sections_percentage,
         "apuracao_finalizada": str(data.get("and", "")).lower() == "f",
         "gerado_em_tse": {
             "data": data.get("dg"),

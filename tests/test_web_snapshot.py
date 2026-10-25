@@ -17,6 +17,10 @@ class WebSnapshotTests(unittest.TestCase):
         self.assertEqual(len(collection["estados"]), len(RESULT_LOCATIONS))
         self.assertEqual(len(collection["resumo_coleta"]), len(RESULT_LOCATIONS))
         self.assertTrue(all(item["status"] == "ok" for item in collection["resumo_coleta"]))
+        self.assertTrue(all(
+            item["percentual_secoes_totalizadas"] == 25.0
+            for item in collection["resumo_coleta"]
+        ))
 
         result = project_web_snapshot(collection)
         self.assertEqual(len(result["resultados"]), len(RESULT_LOCATIONS) + 1)
