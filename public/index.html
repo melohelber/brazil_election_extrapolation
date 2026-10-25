@@ -45,6 +45,8 @@
             <p>Ao atualizar, o servidor consulta os dados do segundo turno no TSE. Após sua confirmação, calculamos o fator de extrapolação dividindo o total de votos do primeiro turno pelos votos individuais já apurados naquele local no segundo turno.</p>
             <p class="methodology-formula">Fator = total de votos do 1º turno ÷ total de votos apurados agora</p>
             <p>Multiplicamos os votos atuais de Flávio Bolsonaro, de Lula e de brancos + nulos pelo mesmo fator. Não usamos quantidade nem percentual de seções ou urnas. Os votos brancos + nulos correspondem ao total apurado menos os votos dos dois candidatos; também conferimos essa soma com os campos retornados pelo TSE.</p>
+            <h3>Quando uma localidade ainda não tem votos</h3>
+            <p>Somente quando o total apurado for zero, usamos temporariamente o primeiro turno. Mantemos o total de votos e os brancos + nulos daquela localidade. Todos os votos válidos — inclusive os votos dados aos demais candidatos — são redistribuídos entre Flávio e Lula na mesma proporção que os dois tiveram entre si no primeiro turno. Assim que surgir qualquer voto do segundo turno, essa base provisória é substituída pela extrapolação da apuração atual.</p>
             <h3>Exemplo com números fictícios</h3>
             <p>Se o Ceará teve 10 milhões de votos no primeiro turno e agora tem 1 milhão apurado, o fator é 10. Com 250 mil votos para Flávio, 650 mil para Lula e 100 mil brancos + nulos, a projeção fica em 2,5 milhões para Flávio, 6,5 milhões para Lula e 1 milhão de brancos + nulos.</p>
             <h3>Percentuais e total do Brasil</h3>
@@ -52,7 +54,7 @@
             <p>Para o Brasil, somamos os votos de cada candidato projetados em todas as UFs e no exterior e só então calculamos os percentuais nacionais. Não fazemos a média dos percentuais estaduais. O arredondamento distribui as unidades restantes para que candidatos + brancos + nulos somem exatamente o total projetado.</p>
             <h3>Condições de contorno</h3>
             <ul>
-              <li><strong>Sem votos:</strong> a confirmação mostra “SEM VOTOS” e bloqueia a análise até todas as localidades terem votos disponíveis.</li>
+              <li><strong>Sem votos:</strong> a confirmação mostra “BASE 1º TURNO” e permite a análise usando a redistribuição provisória dos votos válidos daquela localidade.</li>
               <li><strong>Falha na coleta:</strong> a confirmação mostra o local com erro e bloqueia uma análise nacional incompleta. O servidor faz tentativas adicionais para falhas de rede.</li>
               <li><strong>Apuração finalizada:</strong> usamos fator 1; o projetado passa a ser igual ao resultado apurado.</li>
               <li><strong>Comparecimento maior que no primeiro turno:</strong> se o total já apurado alcançar ou superar a referência, usamos fator 1 para nunca reduzir votos observados.</li>

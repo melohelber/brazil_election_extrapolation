@@ -8,12 +8,55 @@ from apuracao_presidente.config import (
     FIRST_ROUND_ELECTION,
     FIRST_ROUND_LOCATIONS,
     FIRST_ROUND_TURNOUT_PATH,
+    RESULT_LOCATIONS,
 )
-from apuracao_presidente.infrastructure.storage import write_json_atomic
+from apuracao_presidente.infrastructure.storage import (
+    read_json,
+    write_json_atomic,
+)
 from apuracao_presidente.infrastructure.tse_client import (
     TSEClient,
     normalize_first_round,
 )
+
+
+FIRST_ROUND_CANDIDATE_NAMES = {
+    "FLAVIO BOLSONARO": "votos_flavio_bolsonaro_primeiro_turno",
+    "LULA": "votos_lula_primeiro_turno",
+}
+
+
+def load_projection_reference() -> dict[str, Any]:
+    """Combina comparecimento e votos nominais usados no fallback sem apuração."""
+
+    reference = read_json(FIRST_ROUND_TURNOUT_PATH)
+    locations = reference.get("locais")
+    if not isinstance(locations, dict):
+        raise ValueError("A referência do primeiro turno não contém 'locais'")
+
+    for location in RESULT_LOCATIONS:
+        turnout = locations.get(location)
+        if not isinstance(turnout, dict):
+            raise ValueError(
+                f"Referência do primeiro turno ausente para {location.upper()}"
+            )
+        candidates = read_json(
+            FIRST_ROUND_CANDIDATES_DIR / f"{location}.json"
+        )
+        votes_by_name = {
+            str(candidate.get("nome")): int(candidate.get("votos", -1))
+            for candidate in candidates
+            if isinstance(candidate, dict)
+        }
+        for name, field in FIRST_ROUND_CANDIDATE_NAMES.items():
+            if votes_by_name.get(name, -1) < 0:
+                raise ValueError(
+                    f"{name} ausente na base do primeiro turno de "
+                    f"{location.upper()}"
+                )
+            turnout[field] = votes_by_name[name]
+
+    return reference
 
 
 def update_first_round_database(

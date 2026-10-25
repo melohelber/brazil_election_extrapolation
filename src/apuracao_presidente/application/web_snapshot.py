@@ -6,6 +6,7 @@ import logging
 from typing import Any
 
 from apuracao_presidente.application.snapshot import SecondRoundSource
+from apuracao_presidente.application.first_round import load_projection_reference
 from apuracao_presidente.config import (
     DEFAULT_MOCK_PATH,
     FIRST_ROUND_TURNOUT_PATH,
@@ -14,7 +15,6 @@ from apuracao_presidente.config import (
 )
 from apuracao_presidente.domain.projection import project_election
 from apuracao_presidente.infrastructure.mock_source import MockSecondRoundSource
-from apuracao_presidente.infrastructure.storage import read_json
 from apuracao_presidente.infrastructure.tse_client import TSEClient, TSESecondRoundSource
 
 
@@ -98,9 +98,7 @@ def collect_web_snapshot(
             for location in RESULT_LOCATIONS
             if location in errors
         }
-    collection["pronto_para_projetar"] = all(
-        item["status"] == "ok" for item in collection["resumo_coleta"]
-    )
+    collection["pronto_para_projetar"] = not errors
     active_logger.info(
         "Coleta web concluída | status=%s | sucesso=%d | erros=%d",
         collection["status"],
@@ -115,14 +113,7 @@ def project_web_snapshot(collection: dict[str, Any]) -> dict[str, Any]:
 
     if collection.get("status") != "completo":
         raise ValueError("A projeção exige uma coleta completa")
-    states = collection.get("estados", {})
-    without_votes = [
-        location.upper() for location in RESULT_LOCATIONS
-        if int(states.get(location, {}).get("total_votos_apurados", 0)) == 0
-    ]
-    if without_votes:
-        raise ValueError("Sem votos apurados em: " + ", ".join(without_votes))
-    reference = read_json(FIRST_ROUND_TURNOUT_PATH)
+    reference = load_projection_reference()
     result = project_election(collection, reference)
     return {
         "capturado_em": collection.get("capturado_em"),

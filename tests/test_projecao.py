@@ -234,7 +234,7 @@ class ProjecaoTest(unittest.TestCase):
             1,
         )
 
-    def test_localidade_sem_votos_nao_interrompe_resultado(self) -> None:
+    def test_localidade_sem_votos_redistribui_validos_do_primeiro_turno(self) -> None:
         atual, projetado = project_location(
             "ac",
             {
@@ -243,10 +243,60 @@ class ProjecaoTest(unittest.TestCase):
                 "votos_lula": 0,
             },
             1_000,
+            first_round_data={
+                "votos_validos_primeiro_turno": 900,
+                "brancos_primeiro_turno": 40,
+                "nulos_primeiro_turno": 60,
+                "votos_flavio_bolsonaro_primeiro_turno": 300,
+                "votos_lula_primeiro_turno": 200,
+            },
         )
         self.assertEqual(atual["total_votos"], 0)
         self.assertIsNone(projetado["fator_extrapolacao"])
-        self.assertIsNone(projetado["resultado_extrapolado"])
+        self.assertEqual(
+            projetado["origem_projecao"],
+            "primeiro_turno_redistribuido",
+        )
+        self.assertEqual(projetado["total_votos"], 1_000)
+        self.assertEqual(
+            projetado["resultado_extrapolado"]["flavio_bolsonaro"]["votos_brutos"],
+            540,
+        )
+        self.assertEqual(
+            projetado["resultado_extrapolado"]["lula"]["votos_brutos"],
+            360,
+        )
+        self.assertEqual(
+            projetado["resultado_extrapolado"]["brancos_nulos"]["votos_brutos"],
+            100,
+        )
+
+    def test_primeiro_turno_nao_altera_localidade_com_votos_atuais(self) -> None:
+        _, projetado = project_location(
+            "ac",
+            {
+                "total_votos_apurados": 100,
+                "votos_flavio_bolsonaro": 20,
+                "votos_lula": 70,
+            },
+            1_000,
+            first_round_data={
+                "votos_validos_primeiro_turno": 900,
+                "brancos_primeiro_turno": 40,
+                "nulos_primeiro_turno": 60,
+                "votos_flavio_bolsonaro_primeiro_turno": 800,
+                "votos_lula_primeiro_turno": 100,
+            },
+        )
+        self.assertEqual(projetado["origem_projecao"], "apuracao_segundo_turno")
+        self.assertEqual(
+            projetado["resultado_extrapolado"]["flavio_bolsonaro"]["votos_brutos"],
+            200,
+        )
+        self.assertEqual(
+            projetado["resultado_extrapolado"]["lula"]["votos_brutos"],
+            700,
+        )
 
     def test_exterior_e_incluido_no_brasil(self) -> None:
         resultado = project_election(

@@ -2,6 +2,7 @@
 
 import unittest
 
+from apuracao_presidente.application.first_round import load_projection_reference
 from apuracao_presidente.config import (
     FIRST_ROUND_CANDIDATES_DIR,
     FIRST_ROUND_LOCATIONS,
@@ -51,6 +52,27 @@ class BasePrimeiroTurnoTest(unittest.TestCase):
                 for dados in referencia["locais"].values()
             ),
         )
+
+    def test_referencia_de_projecao_inclui_flavio_e_lula_por_localidade(self) -> None:
+        referencia = load_projection_reference()
+        for local in RESULT_LOCATIONS:
+            dados = referencia["locais"][local]
+            self.assertGreater(
+                dados["votos_flavio_bolsonaro_primeiro_turno"],
+                0,
+                local,
+            )
+            self.assertGreater(
+                dados["votos_lula_primeiro_turno"],
+                0,
+                local,
+            )
+            self.assertLessEqual(
+                dados["votos_flavio_bolsonaro_primeiro_turno"]
+                + dados["votos_lula_primeiro_turno"],
+                dados["votos_validos_primeiro_turno"],
+                local,
+            )
 
 
 if __name__ == "__main__":

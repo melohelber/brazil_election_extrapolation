@@ -13,8 +13,9 @@ from apuracao_presidente.config import (
     RESULT_LOCATIONS,
     SECOND_ROUND_ELECTION,
 )
+from apuracao_presidente.application.first_round import load_projection_reference
 from apuracao_presidente.domain.projection import project_election
-from apuracao_presidente.infrastructure.storage import read_json, write_json_atomic
+from apuracao_presidente.infrastructure.storage import write_json_atomic
 from apuracao_presidente.infrastructure.mock_source import MockSecondRoundSource
 from apuracao_presidente.infrastructure.tse_client import (
     TSEClient,
@@ -67,7 +68,12 @@ def show_collection_summary(
     print("\nResultado da coleta:")
     for location in RESULT_LOCATIONS:
         if location in states:
-            print(f"  {location.upper():<8} OK")
+            status = (
+                "BASE 1º TURNO"
+                if states[location]["total_votos_apurados"] == 0
+                else "OK"
+            )
+            print(f"  {location.upper():<8} {status}")
         else:
             print(f"  {location.upper():<8} ERRO - {errors[location]}")
 
@@ -179,8 +185,8 @@ def run_snapshot(
         print(f"\nColeta preservada em: {collection_path}")
         return 0
 
-    logger.info("Carregando referência: %s", FIRST_ROUND_TURNOUT_PATH)
-    reference = read_json(FIRST_ROUND_TURNOUT_PATH)
+    logger.info("Carregando referência completa do primeiro turno")
+    reference = load_projection_reference()
     logger.info("Iniciando cálculo da extrapolação")
     result = project_election(collection, reference)
     write_json_atomic(result, result_path)

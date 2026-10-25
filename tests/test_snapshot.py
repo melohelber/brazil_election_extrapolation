@@ -157,7 +157,11 @@ class ColetaSnapshotTest(unittest.TestCase):
                 patch.object(
                     snapshot, "collect_location", return_value=coleta_local
                 ),
-                patch.object(snapshot, "read_json", return_value={"locais": {}}),
+                patch.object(
+                    snapshot,
+                    "load_projection_reference",
+                    return_value={"locais": {}},
+                ),
                 patch.object(
                     snapshot,
                     "project_election",

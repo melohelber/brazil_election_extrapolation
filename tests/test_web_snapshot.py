@@ -33,19 +33,28 @@ class WebSnapshotTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "coleta completa"):
             project_web_snapshot({"status": "incompleto", "estados": {}})
 
-    def test_zero_votes_are_reported_before_confirmation_and_cannot_be_projected(self):
+    def test_zero_votes_use_first_round_fallback_and_allow_projection(self):
         with patch(
             "apuracao_presidente.application.web_snapshot.MockSecondRoundSource.load",
-            return_value={"total_votos_apurados": 0},
+            return_value={
+                "total_votos_apurados": 0,
+                "votos_flavio_bolsonaro": 0,
+                "votos_lula": 0,
+            },
         ):
             collection = collect_web_snapshot(mock=True)
         self.assertEqual(collection["status"], "completo")
-        self.assertFalse(collection["pronto_para_projetar"])
+        self.assertTrue(collection["pronto_para_projetar"])
         self.assertTrue(all(row["status"] == "sem_votos" for row in collection["resumo_coleta"]))
-        # Não confia em um flag enviado pelo navegador para permitir projeção.
-        collection["pronto_para_projetar"] = True
-        with self.assertRaisesRegex(ValueError, "Sem votos apurados"):
-            project_web_snapshot(collection)
+        result = project_web_snapshot(collection)
+        self.assertIsNotNone(
+            result["resultados"][-1]["projetado"]["resultado_extrapolado"]
+        )
+        self.assertTrue(all(
+            item["projetado"]["origem_projecao"]
+            == "primeiro_turno_redistribuido"
+            for item in result["resultados"][:-1]
+        ))
 
 
 if __name__ == "__main__":

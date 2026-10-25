@@ -87,10 +87,62 @@ def _read_vote(data: dict[str, Any], primary_key: str, alias: str) -> int:
     return int(value)
 
 
+def _first_round_fallback_votes(
+    location: str,
+    reference: dict[str, Any] | None,
+    first_round_total: int,
+) -> dict[str, int]:
+    """Redistribui os válidos dos demais candidatos entre Flávio e Lula."""
+
+    if not isinstance(reference, dict):
+        raise ValueError(
+            f"Base nominal do primeiro turno ausente para {location.upper()}"
+        )
+    try:
+        valid = int(reference["votos_validos_primeiro_turno"])
+        blank = int(reference["brancos_primeiro_turno"])
+        null = int(reference["nulos_primeiro_turno"])
+        flavio = int(reference["votos_flavio_bolsonaro_primeiro_turno"])
+        lula = int(reference["votos_lula_primeiro_turno"])
+    except (KeyError, TypeError, ValueError) as error:
+        raise ValueError(
+            f"Base nominal do primeiro turno inválida para {location.upper()}: "
+            f"{error}"
+        ) from error
+
+    if min(valid, blank, null, flavio, lula) < 0:
+        raise ValueError(
+            f"Base do primeiro turno negativa para {location.upper()}"
+        )
+    if valid + blank + null != first_round_total:
+        raise ValueError(
+            f"Total do primeiro turno inconsistente para {location.upper()}"
+        )
+    head_to_head_total = flavio + lula
+    if head_to_head_total <= 0 or head_to_head_total > valid:
+        raise ValueError(
+            f"Votos nominais do primeiro turno inválidos para {location.upper()}"
+        )
+
+    redistributed = extrapolate_preserving_total(
+        {
+            "flavio_bolsonaro": flavio,
+            "lula": lula,
+            "brancos_nulos": 0,
+        },
+        Decimal(valid) / Decimal(head_to_head_total),
+        valid,
+    )
+    redistributed["brancos_nulos"] = blank + null
+    return redistributed
+
+
 def project_location(
     location: str,
     data: dict[str, Any],
     first_round_total: int,
+    *,
+    first_round_data: dict[str, Any] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     try:
         current_total = int(data["total_votos_apurados"])
@@ -133,12 +185,18 @@ def project_location(
     }
 
     if current_total == 0:
+        projected_votes = _first_round_fallback_votes(
+            location,
+            first_round_data,
+            first_round_total,
+        )
         return current, {
             "uf": location.upper(),
             "base_extrapolacao": basis,
             "fator_extrapolacao": None,
-            "total_votos": None,
-            "resultado_extrapolado": None,
+            "origem_projecao": "primeiro_turno_redistribuido",
+            "total_votos": first_round_total,
+            "resultado_extrapolado": describe_votes(projected_votes),
         }
 
     finished = data.get("apuracao_finalizada") is True
@@ -161,6 +219,7 @@ def project_location(
         "uf": location.upper(),
         "base_extrapolacao": basis,
         "fator_extrapolacao": float(factor),
+        "origem_projecao": "apuracao_segundo_turno",
         "total_votos": projected_total,
         "resultado_extrapolado": describe_votes(projected_votes),
     }
@@ -272,6 +331,7 @@ def project_election(
             location,
             data,
             first_round_total,
+            first_round_data=reference,
         )
         current_results[location.upper()] = current
         projected_results[location.upper()] = projected

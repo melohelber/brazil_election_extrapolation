@@ -54,9 +54,12 @@ function showConfirmation(collection) {
   const ok = rows.filter((item) => item.status === "ok").length;
   const ready = collection.pronto_para_projetar === true;
   const withoutVotes = rows.filter((item) => item.status === "sem_votos").length;
-  document.querySelector("#dialog-summary").textContent = ready
-    ? `${ok} de ${rows.length} localidades com votos disponíveis. Confirme para calcular e abrir a análise.`
-    : `${withoutVotes} localidades sem votos apurados; ${rows.filter((item) => item.status === "erro").length} com erro de coleta. A análise ficará disponível quando todas tiverem votos. Use “Testar com dados simulados” para experimentar agora.`;
+  const errors = rows.filter((item) => item.status === "erro").length;
+  document.querySelector("#dialog-summary").textContent = !ready
+    ? `${errors} localidades com erro de coleta. A análise nacional exige uma coleta válida de todas as localidades.`
+    : withoutVotes > 0
+      ? `${ok} localidades usarão a apuração atual; ${withoutVotes} ainda sem votos usarão a base redistribuída do primeiro turno.`
+      : `${ok} de ${rows.length} localidades com votos disponíveis. Confirme para calcular e abrir a análise.`;
   document.querySelector("#collection-grid").innerHTML = rows.map((item) => `
     <div class="collection-item ${item.status}">
       <span>${item.local}</span><span>${collectionStatus(item)}</span>
@@ -66,7 +69,7 @@ function showConfirmation(collection) {
 }
 
 function collectionStatus(item) {
-  if (item.status === "sem_votos") return "SEM VOTOS";
+  if (item.status === "sem_votos") return "BASE 1º TURNO";
   if (item.status === "erro") return "ERRO";
   const sections = item.percentual_secoes_totalizadas;
   return sections === null || sections === undefined
@@ -134,8 +137,11 @@ function renderState(entry) {
   const votes = resultBlock(entry.projetado);
   const factor = entry.projetado.fator_extrapolacao;
   if (!votes) return `<article class="state-card" data-name="${entry.local}"><div class="state-top"><span class="state-code">${entry.local}</span><span class="factor">SEM PROJEÇÃO</span></div><small>Aguardando votos apurados.</small></article>`;
+  const source = entry.projetado.origem_projecao === "primeiro_turno_redistribuido"
+    ? "BASE 1º TURNO"
+    : `FATOR ${Number(factor).toLocaleString("pt-BR", { maximumFractionDigits: 3 })}×`;
   return `<article class="state-card" data-name="${entry.local}">
-    <div class="state-top"><span class="state-code">${entry.local}</span><span class="factor">FATOR ${Number(factor).toLocaleString("pt-BR", { maximumFractionDigits: 3 })}×</span></div>
+    <div class="state-top"><span class="state-code">${entry.local}</span><span class="factor">${source}</span></div>
     <div class="mini-result"><span>Flávio Bolsonaro</span><strong>${percent(votes.flavio_bolsonaro.percentual_sobre_validos)}</strong><small>${number.format(votes.flavio_bolsonaro.votos_brutos)} votos projetados</small></div>
     <div class="mini-result"><span>Lula</span><strong>${percent(votes.lula.percentual_sobre_validos)}</strong><small>${number.format(votes.lula.votos_brutos)} votos projetados</small></div>
   </article>`;
