@@ -1,8 +1,7 @@
 import json
+import os
 from pathlib import Path
-import sys
 import tempfile
-import types
 import unittest
 from unittest.mock import patch
 
@@ -89,35 +88,30 @@ class DiarioWebTest(unittest.TestCase):
 
 
 class BlobJournalStorageTest(unittest.TestCase):
-    def test_usa_funcoes_publicas_do_sdk_python(self) -> None:
-        calls: dict[str, object] = {}
-        package = types.ModuleType("vercel")
-        package.__path__ = []
-        blob_module = types.ModuleType("vercel.blob")
-
-        def fake_put(pathname: str, body: bytes, **options: object) -> object:
-            calls["put"] = (pathname, body, options)
-            return types.SimpleNamespace(pathname=pathname, url=f"https://blob.test/{pathname}")
-
-        def fake_list_objects(**options: object) -> object:
-            calls["list"] = options
-            return types.SimpleNamespace(
-                blobs=[types.SimpleNamespace(pathname="diario/resumo.json", url="https://blob.test/resumo")],
-                has_more=False,
-                cursor=None,
-            )
-
-        blob_module.put = fake_put
-        blob_module.list_objects = fake_list_objects
-        with patch.dict(sys.modules, {"vercel": package, "vercel.blob": blob_module}):
+    def test_grava_e_lista_pela_api_http_do_blob(self) -> None:
+        with patch.dict(os.environ, {"BLOB_READ_WRITE_TOKEN": "vercel_blob_rw_store_test"}):
             storage = BlobJournalStorage()
+        with patch.object(
+            storage,
+            "_request",
+            side_effect=[
+                {"pathname": "diario/resumo.json", "url": "https://blob.test/resumo"},
+                {
+                    "blobs": [
+                        {"pathname": "diario/resumo.json", "url": "https://blob.test/resumo"}
+                    ],
+                    "hasMore": False,
+                },
+            ],
+        ) as request:
             saved = storage.put_json("diario/resumo.json", {"ok": True})
             listed = storage.list_objects("diario/")
 
         self.assertEqual(saved.pathname, "diario/resumo.json")
         self.assertEqual(listed[0].pathname, "diario/resumo.json")
-        self.assertEqual(calls["list"], {"prefix": "diario/", "limit": 1000, "cursor": None})
-        self.assertEqual(calls["put"][2]["overwrite"], True)
+        self.assertEqual(request.call_args_list[0].args, ("PUT",))
+        self.assertEqual(request.call_args_list[0].kwargs["params"], {"pathname": "diario/resumo.json"})
+        self.assertEqual(request.call_args_list[1].kwargs["params"], {"prefix": "diario/", "limit": 1000})
 
 
 if __name__ == "__main__":

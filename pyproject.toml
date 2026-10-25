@@ -7,7 +7,7 @@ name = "apuracao-presidente-2026"
 version = "1.0.0"
 description = "Coleta e projeção da apuração presidencial de 2026"
 requires-python = ">=3.11"
-dependencies = ["vercel>=0.11.6,<1"]
+dependencies = []
 
 [project.scripts]
 apuracao-presidente = "apuracao_presidente.cli:main"
