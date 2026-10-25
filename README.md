@@ -30,8 +30,11 @@ grava no Vercel Blob a coleta e o resultado completos e publica um resumo leve
 para o gráfico. A página consulta `/api/history` a cada minuto, mostra o último
 horário salvo e permite baixar os JSONs de cada rodada.
 
-O agendamento por minuto requer Vercel Pro ou Enterprise. O plano Hobby aceita
-cron somente uma vez por dia e rejeita essa configuração durante o deploy.
+O agendamento por minuto requer Vercel Pro ou Enterprise. Enquanto o projeto
+estiver no Hobby, o endpoint e o diário ficam disponíveis, mas o cron permanece
+fora de `vercel.json` para que o deploy seja aceito. Depois do upgrade, adicione
+`{"path":"/api/cron","schedule":"* * * * *"}` ao array `crons` e defina
+`DIARY_MINUTE_SCHEDULE_ACTIVE=1` no projeto.
 Também são necessários um Blob store conectado ao projeto e a variável secreta
 `CRON_SECRET`; o endpoint recusa chamadas sem o token enviado pela Vercel.
 

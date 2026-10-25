@@ -3,6 +3,7 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import logging
+import os
 from pathlib import Path
 import sys
 from typing import Any
@@ -51,4 +52,15 @@ class handler(BaseHTTPRequestHandler):
             LOGGER.exception("Falha ao consultar o diário")
             self._send_json(500, {"erro": f"{type(error).__name__}: {error}"})
             return
-        self._send_json(200, {"historico": history})
+        schedule_active = os.environ.get("DIARY_MINUTE_SCHEDULE_ACTIVE") == "1"
+        self._send_json(
+            200,
+            {
+                "historico": history,
+                "agendamento": {
+                    "ativo": schedule_active,
+                    "intervalo_minutos": 1,
+                    "estado": "automatico" if schedule_active else "aguardando_vercel_pro",
+                },
+            },
+        )

@@ -18,6 +18,7 @@ const historyContent = document.querySelector("#history-content");
 const historyChart = document.querySelector("#history-chart");
 const chartTooltip = document.querySelector("#chart-tooltip");
 const historyList = document.querySelector("#history-list");
+const historyScheduleStatus = document.querySelector("#history-schedule-status");
 
 if (mockMode) {
   document.querySelector("#source-label").textContent = "MODO SIMULAÇÃO";
@@ -200,13 +201,24 @@ function renderHistoryChart(points) {
   });
 }
 
-function renderHistory(history) {
+function renderSchedule(schedule) {
+  const active = schedule?.ativo === true;
+  historyScheduleStatus.classList.toggle("paused", !active);
+  historyScheduleStatus.lastChild.textContent = active
+    ? " AUTOMÁTICO · 1 MIN"
+    : " CRON AGUARDANDO PRO";
+}
+
+function renderHistory(history, schedule) {
+  renderSchedule(schedule);
   const rounds = history.rodadas || [];
   const points = rounds.filter((round) => round.status === "ok" && round.flavio_bolsonaro_percentual !== null);
   if (!rounds.length) {
     historyContent.classList.add("hidden");
     historyLoading.classList.remove("hidden");
-    historyLoading.textContent = "Ainda não há rodadas salvas neste dia. O diário aparecerá aqui assim que a primeira coleta automática terminar.";
+    historyLoading.textContent = schedule?.ativo
+      ? "Ainda não há rodadas salvas neste dia. O diário aparecerá aqui assim que a primeira coleta automática terminar."
+      : "O diário está pronto, mas o agendamento por minuto aguarda a ativação do Vercel Pro. Atualizações confirmadas manualmente já ficam salvas aqui.";
     return;
   }
   const latest = rounds.at(-1);
@@ -237,7 +249,7 @@ async function loadHistory() {
   if (mockMode) query.set("mock", "1");
   try {
     const payload = await readJson(await fetch(`/api/history?${query}`, { cache: "no-store" }));
-    renderHistory(payload.historico);
+    renderHistory(payload.historico, payload.agendamento);
   } catch (error) {
     historyContent.classList.add("hidden");
     historyLoading.classList.remove("hidden");

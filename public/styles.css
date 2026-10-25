@@ -70,6 +70,8 @@ h1 span { color: #9eb1c4; }
 .history-controls label { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; }
 .history-controls input { color: var(--text); color-scheme: dark; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 9px; padding: 8px 9px; }
 .auto-pill { display: inline-flex; align-items: center; gap: 7px; color: var(--accent); background: rgba(94,230,190,.07); border: 1px solid rgba(94,230,190,.2); border-radius: 999px; padding: 9px 11px; font-size: 9px; font-weight: 850; letter-spacing: .08em; white-space: nowrap; }
+.auto-pill.paused { color: #ffcb77; background: rgba(255,203,119,.07); border-color: rgba(255,203,119,.23); }
+.auto-pill.paused .pulse { background: #ffcb77; box-shadow: 0 0 0 4px rgba(255,203,119,.1); animation: none; }
 .history-empty { color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 16px; padding: 24px; text-align: center; font-size: 13px; }
 .history-latest { display: grid; grid-template-columns: 1.2fr 1fr 1fr; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--panel); }
 .history-latest > div { display: grid; gap: 6px; padding: 16px 18px; }
