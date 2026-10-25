@@ -1,7 +1,10 @@
 import json
 from pathlib import Path
+import sys
 import tempfile
+import types
 import unittest
+from unittest.mock import patch
 
 from apuracao_presidente.application.journal import (
     list_journal_history,
@@ -11,7 +14,10 @@ from apuracao_presidente.application.web_snapshot import (
     collect_web_snapshot,
     project_web_snapshot,
 )
-from apuracao_presidente.infrastructure.journal_storage import LocalJournalStorage
+from apuracao_presidente.infrastructure.journal_storage import (
+    BlobJournalStorage,
+    LocalJournalStorage,
+)
 
 
 class DiarioWebTest(unittest.TestCase):
@@ -80,6 +86,38 @@ class DiarioWebTest(unittest.TestCase):
         self.assertEqual(history["rodadas"][0]["status"], "erro")
         self.assertIsNone(history["rodadas"][0]["resultado_url"])
         self.assertFalse((self.root / "diario/mock/resultados").exists())
+
+
+class BlobJournalStorageTest(unittest.TestCase):
+    def test_usa_funcoes_publicas_do_sdk_python(self) -> None:
+        calls: dict[str, object] = {}
+        package = types.ModuleType("vercel")
+        package.__path__ = []
+        blob_module = types.ModuleType("vercel.blob")
+
+        def fake_put(pathname: str, body: bytes, **options: object) -> object:
+            calls["put"] = (pathname, body, options)
+            return types.SimpleNamespace(pathname=pathname, url=f"https://blob.test/{pathname}")
+
+        def fake_list_objects(**options: object) -> object:
+            calls["list"] = options
+            return types.SimpleNamespace(
+                blobs=[types.SimpleNamespace(pathname="diario/resumo.json", url="https://blob.test/resumo")],
+                has_more=False,
+                cursor=None,
+            )
+
+        blob_module.put = fake_put
+        blob_module.list_objects = fake_list_objects
+        with patch.dict(sys.modules, {"vercel": package, "vercel.blob": blob_module}):
+            storage = BlobJournalStorage()
+            saved = storage.put_json("diario/resumo.json", {"ok": True})
+            listed = storage.list_objects("diario/")
+
+        self.assertEqual(saved.pathname, "diario/resumo.json")
+        self.assertEqual(listed[0].pathname, "diario/resumo.json")
+        self.assertEqual(calls["list"], {"prefix": "diario/", "limit": 1000, "cursor": None})
+        self.assertEqual(calls["put"][2]["overwrite"], True)
 
 
 if __name__ == "__main__":

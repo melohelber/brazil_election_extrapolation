@@ -59,35 +59,33 @@ class BlobJournalStorage:
     """Backend persistente do diário, conectado ao Vercel Blob."""
 
     def put_json(self, pathname: str, payload: dict[str, Any]) -> JournalObject:
-        from vercel.blob import BlobClient
+        from vercel.blob import put
 
         body = (json.dumps(payload, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-        with BlobClient() as client:
-            blob = client.put(
-                pathname,
-                body,
-                access="public",
-                content_type="application/json; charset=utf-8",
-                overwrite=True,
-                cache_control_max_age=60,
-            )
+        blob = put(
+            pathname,
+            body,
+            access="public",
+            content_type="application/json; charset=utf-8",
+            overwrite=True,
+            cache_control_max_age=60,
+        )
         return JournalObject(pathname=blob.pathname, url=blob.url)
 
     def list_objects(self, prefix: str) -> list[JournalObject]:
-        from vercel.blob import BlobClient
+        from vercel.blob import list_objects
 
         objects: list[JournalObject] = []
         cursor: str | None = None
-        with BlobClient() as client:
-            while True:
-                page = client.list_objects(prefix=prefix, limit=1000, cursor=cursor)
-                objects.extend(
-                    JournalObject(pathname=item.pathname, url=item.url)
-                    for item in page.blobs
-                )
-                if not page.has_more:
-                    break
-                cursor = page.cursor
+        while True:
+            page = list_objects(prefix=prefix, limit=1000, cursor=cursor)
+            objects.extend(
+                JournalObject(pathname=item.pathname, url=item.url)
+                for item in page.blobs
+            )
+            if not page.has_more:
+                break
+            cursor = page.cursor
         return objects
 
 
