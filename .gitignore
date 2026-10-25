@@ -13,6 +13,8 @@ var/snapshots/**/*.json
 var/snapshots/*.json
 var/mock_snapshots/**/*.json
 var/mock_snapshots/*.json
+var/web_diary/**/*.json
+var/web_diary/*.json
 !var/logs/.gitkeep
 !var/snapshots/.gitkeep
 !var/mock_snapshots/.gitkeep

@@ -24,9 +24,23 @@ Para usar o TSE real no servidor local:
 make dev-real
 ```
 
-No Vercel, `public/` é servido pela CDN e `api/snapshot.py` executa a coleta e a
-projeção. O navegador mantém o snapshot entre a confirmação e o cálculo; os
-JSONs podem ser baixados pelos botões da interface.
+No Vercel, `public/` é servido pela CDN e as funções Python executam a coleta,
+a projeção e o diário automático. O cron `/api/cron` roda uma vez por minuto,
+grava no Vercel Blob a coleta e o resultado completos e publica um resumo leve
+para o gráfico. A página consulta `/api/history` a cada minuto, mostra o último
+horário salvo e permite baixar os JSONs de cada rodada.
+
+O agendamento por minuto requer Vercel Pro ou Enterprise. O plano Hobby aceita
+cron somente uma vez por dia e rejeita essa configuração durante o deploy.
+Também são necessários um Blob store conectado ao projeto e a variável secreta
+`CRON_SECRET`; o endpoint recusa chamadas sem o token enviado pela Vercel.
+
+No desenvolvimento, o mesmo diário usa `var/web_diary/`. Para criar uma rodada
+mockada e vê-la imediatamente no gráfico:
+
+```bash
+curl 'http://127.0.0.1:8000/api/cron?mock=1'
+```
 
 Depois que o repositório estiver conectado ao Vercel, uma atualização passa
 pelos testes e é publicada com um único comando:

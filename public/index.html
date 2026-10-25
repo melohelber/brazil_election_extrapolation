@@ -76,6 +76,52 @@
         </div>
       </section>
 
+      <section id="history-section" class="history-section" aria-live="polite">
+        <div class="section-heading history-heading">
+          <div>
+            <span class="eyebrow">DIÁRIO DA APURAÇÃO</span>
+            <h2>Evolução minuto a minuto</h2>
+          </div>
+          <div class="history-controls">
+            <label>Dia <input id="history-date" type="date" /></label>
+            <span class="auto-pill"><span class="pulse"></span> AUTOMÁTICO · 1 MIN</span>
+          </div>
+        </div>
+        <div id="history-loading" class="history-empty">Carregando o diário salvo…</div>
+        <div id="history-content" class="hidden">
+          <div class="history-latest">
+            <div>
+              <small>ÚLTIMA RODADA</small>
+              <strong id="history-last-time">—</strong>
+            </div>
+            <div class="latest-candidate flavio-copy">
+              <small>FLÁVIO BOLSONARO</small>
+              <strong id="history-flavio">—</strong>
+            </div>
+            <div class="latest-candidate lula-copy">
+              <small>LULA</small>
+              <strong id="history-lula">—</strong>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-legend">
+              <span><i class="legend-dot flavio-dot"></i>Flávio Bolsonaro</span>
+              <span><i class="legend-dot lula-dot"></i>Lula</span>
+              <small>Passe o mouse ou toque no gráfico</small>
+            </div>
+            <div id="history-chart-wrap" class="chart-wrap">
+              <svg id="history-chart" role="img" aria-label="Evolução percentual dos candidatos por horário"></svg>
+              <div id="chart-tooltip" class="chart-tooltip hidden"></div>
+            </div>
+          </div>
+          <div class="recent-header">
+            <strong>Rodadas recentes</strong>
+            <small>Os JSONs completos de coleta e resultado ficam arquivados em cada rodada.</small>
+          </div>
+          <div id="history-list" class="history-list"></div>
+        </div>
+      </section>
+
       <section id="dashboard" class="dashboard hidden">
         <div class="section-heading">
           <div><span class="eyebrow">RESULTADO NACIONAL</span><h2>Brasil</h2></div>

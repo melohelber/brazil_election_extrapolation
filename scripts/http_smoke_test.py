@@ -22,6 +22,8 @@ def main() -> None:
         raise RuntimeError("O frontend esperado não foi servido")
 
     health = get_json(f"{base_url}/api/snapshot?health=1")
+    journal_run = get_json(f"{base_url}/api/cron?mock=1")
+    history = get_json(f"{base_url}/api/history?mock=1")["historico"]
     collection = get_json(f"{base_url}/api/snapshot?mock=1")["coleta"]
     request = Request(
         f"{base_url}/api/snapshot",
@@ -36,6 +38,8 @@ def main() -> None:
     report = {
         "frontend": "ok",
         "api": health["status"],
+        "diario": journal_run["status"],
+        "rodadas_no_historico": history["total"],
         "coleta": collection["status"],
         "localidades": len(collection["estados"]),
         "ultimo_resultado": brazil["local"],

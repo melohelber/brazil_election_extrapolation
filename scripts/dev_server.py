@@ -15,6 +15,17 @@ from apuracao_presidente.application.web_snapshot import (  # noqa: E402
     collect_web_snapshot,
     project_web_snapshot,
 )
+from apuracao_presidente.application.journal import (  # noqa: E402
+    list_journal_history,
+    run_journal_entry,
+    save_journal_entry,
+)
+from apuracao_presidente.infrastructure.journal_storage import (  # noqa: E402
+    LocalJournalStorage,
+)
+
+
+LOCAL_DIARY = PROJECT_ROOT / "var" / "web_diary"
 
 
 class DevelopmentHandler(SimpleHTTPRequestHandler):
@@ -33,12 +44,45 @@ class DevelopmentHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         parsed = urlparse(self.path)
+        query = parse_qs(parsed.query)
+        if parsed.path == "/api/history":
+            if "arquivo" in query:
+                requested = (LOCAL_DIARY / query["arquivo"][0]).resolve()
+                root = LOCAL_DIARY.resolve()
+                if root not in requested.parents or not requested.is_file():
+                    self.send_error(404)
+                    return
+                body = requested.read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+                return
+            try:
+                history = list_journal_history(
+                    LocalJournalStorage(LOCAL_DIARY),
+                    date=query.get("data", [None])[0],
+                    mock=self.mock or query.get("mock") == ["1"],
+                    limit=min(max(int(query.get("limite", ["360"])[0]), 1), 1440),
+                )
+            except (ValueError, TypeError) as error:
+                self._json(400, {"erro": str(error)})
+                return
+            self._json(200, {"historico": history})
+            return
+        if parsed.path == "/api/cron":
+            summary = run_journal_entry(
+                LocalJournalStorage(LOCAL_DIARY),
+                mock=self.mock or query.get("mock") == ["1"],
+            )
+            self._json(200, {"status": "ok", "rodada": summary})
+            return
         if parsed.path != "/api/snapshot":
             if parsed.path == "/":
                 self.path = "/index.html"
             super().do_GET()
             return
-        query = parse_qs(parsed.query)
         if query.get("health") == ["1"]:
             self._json(200, {"status": "ok", "service": "apuracao-presidente"})
             return
@@ -56,7 +100,12 @@ class DevelopmentHandler(SimpleHTTPRequestHandler):
         except (KeyError, TypeError, ValueError, json.JSONDecodeError) as error:
             self._json(400, {"erro": str(error)})
             return
-        self._json(200, {"resultado": result})
+        journal = save_journal_entry(
+            payload["coleta"],
+            result,
+            LocalJournalStorage(LOCAL_DIARY),
+        )
+        self._json(200, {"resultado": result, "diario": {"salvo": True, "rodada": journal}})
 
 
 def main() -> None:

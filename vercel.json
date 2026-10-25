@@ -10,6 +10,9 @@
       "excludeFiles": "{tests/**,data/exemplos/**,var/**}"
     }
   },
+  "crons": [
+    { "path": "/api/cron", "schedule": "* * * * *" }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" }
   ],

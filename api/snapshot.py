@@ -18,6 +18,8 @@ from apuracao_presidente.application.web_snapshot import (  # noqa: E402
     collect_web_snapshot,
     project_web_snapshot,
 )
+from apuracao_presidente.application.journal import save_journal_entry  # noqa: E402
+from apuracao_presidente.infrastructure.journal_storage import journal_storage  # noqa: E402
 
 
 LOGGER = logging.getLogger("apuracao_presidente.api")
@@ -73,5 +75,20 @@ class handler(BaseHTTPRequestHandler):
             self._send_json(500, {"erro": f"{type(error).__name__}: {error}"})
             return
 
-        LOGGER.info("Projeção web concluída")
-        self._send_json(200, {"resultado": result})
+        journal: dict[str, Any]
+        try:
+            journal = {
+                "salvo": True,
+                "rodada": save_journal_entry(
+                    collection,
+                    result,
+                    journal_storage(PROJECT_ROOT),
+                    logger=LOGGER,
+                ),
+            }
+        except Exception as error:  # noqa: BLE001 - projeção continua disponível
+            LOGGER.exception("Projeção concluída, mas não foi possível salvar no diário")
+            journal = {"salvo": False, "erro": f"{type(error).__name__}: {error}"}
+
+        LOGGER.info("Projeção web concluída | diario_salvo=%s", journal["salvo"])
+        self._send_json(200, {"resultado": result, "diario": journal})
